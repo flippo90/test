@@ -1,0 +1,20 @@
+<div>
+    <div class="container">
+        <div id="page-wrapper">
+            <a class="navbar-right" role="button" href="#">Übersicht</a>
+            <h1>{{myDetailLocation.name}}</h1>
+            <label class="detail-label">Adresse: {{myDetailLocation.address}}</label>
+            <label class="detail-label">
+                Art der Location: {{convertedType}}
+                <img ng-src="{{detailService.location.imagePath}}" alt="Could not fine Image" width="16" height="16"/>
+            </label>
+            <details >
+                <summary>Events</summary>
+                <div>
+                    <div class="eventGridStyle" ng-grid="eventGridOptions"></div>
+                </div>
+            </details>
+            <ng-comment ng-Target="myDetailLocation" ng-Location="true"></ng-comment>
+        </div>
+    </div>
+</div>

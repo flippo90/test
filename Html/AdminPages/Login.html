@@ -1,0 +1,12 @@
+<div class="container">
+
+    <form name="createLocation" class="form-createLocation" role="form" ng-submit="login()">
+        <h1>Einloggen
+            <a style="float: right" class="btn" role="button" href="#">Home</a>
+        </h1>
+        <input style="margin-bottom: 10px" class="form-control" type="text" name="username" placeholder="Username" ng-model="credentials.username" required autofocus/>
+        <input style="margin-bottom: 10px"class="form-control" type="password" name="password" placeholder="Passwort" ng-model="credentials.password" required/>
+        <div style="margin-bottom: 10px" class="alert alert-danger" role="alert" ng-show="hasErrorMessage()">{{errorMessage}}</div>
+        <button type="submit" class="btn btn-lg btn-primary btn-block">Login</button>
+    </form>
+</div>

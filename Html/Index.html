@@ -1,0 +1,63 @@
+<!doctype html>
+<html ng-app="llbec">
+<head>
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+
+    <link rel="stylesheet" type="text/css" href="Libraries/ng-grid/css/ng-grid.min.css" />
+    <link rel="stylesheet" type="text/css" href="Libraries/ng-grid/css/style.css" />
+    <script type="text/javascript" src="Libraries/ng-grid/js/jquery-1.10.1.min.js"></script>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.7/angular.min.js"></script>
+    <script src="Libraries/ui-bootstrap-tpls-0.11.0.min.js"></script>
+
+    <script type="text/javascript" src="Libraries/ng-grid/js/ng-grid.min.js"></script>
+
+    <script language="JavaScript" type="text/javascript" src="Libraries/jquery-2.1.0.js"></script>
+
+    <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?libraries=places&sensor=false"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>
+
+    <link rel="stylesheet" type="text/css" href="Libraries/bootstrap.min.css">
+
+    <script src="Libraries/bootstrap.min.js"></script>
+
+
+    <script src="Index.js"></script>
+    <script src="CommentDirective.js"></script>
+    <script src="FilterController.js"></script>
+    <script src="DetailService.js"></script>
+    <script src="TblController.js"></script>
+    <script src="MapController.js"></script>
+    <script src="DatabaseController.js"></script>
+    <script src="DataFilterController.js"></script>
+    <script src="LocationDetailController.js"></script>
+    <script src="EventDetailController.js"></script>
+
+    <script src="AdminPages/createLocation.js"></script>
+    <script src="AdminPages/createEvent.js"></script>
+    <script src="AdminPages/manageUsers.js"></script>
+    <script src="AdminPages/LoginController.js"></script>
+    <script src="AuthenticationService.js"></script>
+
+    <script src="Libraries/underscore.js"></script>
+    <script src="Libraries/angular-google-maps.js"></script>
+    <script src="Libraries/ngAutocomplete.js"></script>
+    <script src="Libraries/angular-cookies.js"></script>
+
+    <script src="createTestData.js"></script>
+    <div ng-controller="logoutController">
+        <div ng-show="checkUser()">
+            <label>Hallo {{getUserName()}}</label>
+            <a ng-show="userIsAdmin()" class="btn" role="button" href="#/adminPages/manageUsers">Admin Stuff</a>
+            <a ng-hide="userIsAdmin()" class="btn" role="button" href="#/adminPages/createEvent">Events verwalten</a>
+            <button ng-click="logout()">Logout</button>
+        </div>
+        <div ng-hide="checkUser()">
+            <a style="float: right" class="btn" role="button" href="#/adminPages/login">Login</a>
+        </div>
+    </div>
+</head>
+<body>
+    <div ng-view></div>
+</body>
+</html>

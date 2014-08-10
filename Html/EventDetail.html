@@ -1,0 +1,17 @@
+<div>
+    <div class="container">
+        <div id="page-wrapper">
+            <a class="navbar-right" role="button" href="#">Übersicht</a>
+            <h1>{{myDetailEvent.name}}</h1>
+            <label class="detail-label">Beschreibung: {{myDetailEvent.description}}</label>
+            <label class="detail-label">
+                Location: {{myDetailEvent.locationName}}
+                <img ng-src="{{myDetailEvent.imagePath}}" alt="Could not find Image" width="16" height="16"/>
+            </label>
+            <label class="detail-label">Specials: {{myDetailEvent.specials}}</label>
+            <label class="detail-label">Datum: {{myDetailEvent.date}}</label>
+            <label class="detail-label">Uhrzeit: {{myDetailEvent.time}}</label>
+            <ng-comment ng-Target="myDetailEvent" ng-Location="false"></ng-comment>
+        </div>
+    </div>
+</div>

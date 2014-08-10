@@ -1,0 +1,18 @@
+<ul class="nav nav-tabs">
+    <li><a href="#">Home</a></li>
+    <li class="active"><a href="#/adminPages/createLocation">Locations verwalten</a></li>
+    <li><a href="#/adminPages/createEvent">Events verwalten</a></li>
+    <li><a href="#/adminPages/manageUsers">User verwalten</a></li>
+</ul>
+
+<div ng-init="init()">
+    <div class="container">
+        <form name="createLocation" class="form-createLocation" role="form">
+            <input name="name" type="text" ng-model="location.name" class="form-control" autofocus>
+            <input name="address" type="text" id="adressAutocomplete" ng-autocomplete="result" options="options" details="details" class="form-control"/>
+            <select name="type" ng-model="location.type" ng-options="type.text for type in locationTypes" class="form-control" ></select>
+            <input name="openingTime" type="text" placeholder="Öffnungszeit" ng-model="location.openingTime" class="form-control">
+            <button id="createLocationButton" ng-click="onCreateLocation()" class="btn btn-lg btn-primary btn-block">Location erstellen</button>
+        </form>
+    </div>
+</div>

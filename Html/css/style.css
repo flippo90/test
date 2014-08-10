@@ -1,0 +1,416 @@
+* {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    height: 100%;
+    overflow: hidden;
+    font-size: 14px;
+}
+
+.right {
+    float: right;
+}
+
+.section-header {
+    width: 100%;
+    padding: 5px;
+    background: #fcf8f2;
+    position: absolute;
+    top: 0;
+    left: 0;
+    overflow: hidden;
+}
+/*
+.section-header .btn {
+    padding: 5px;
+    display: inline-block;
+    border-radius: 5px;
+}
+*/
+
+.section-main {
+    width: 100%;
+    height: 100%;
+    padding: 5px;
+    top: 50px;
+    left: 0;
+    overflow: hidden;
+}
+
+#section-suche {
+    position: absolute;
+    top: 70px;
+    left: -100%;
+    width: 50%;
+    height: 100%;
+    margin-bottom: 35px;
+    right: 0;
+    background: #fff;
+    padding: 10px;
+    
+    -webkit-transition: all .3s ease-in-out;
+    -moz-transition: all .3s ease-in-out;
+    -ms-transition: all .3s ease-in-out;
+    -o-transition: all .3s ease-in-out;
+    transition: all .3s ease-in-out;
+}
+
+#section-suche.active {
+    left: 0;
+}
+
+#section-einstellungen {
+    position: absolute;
+    top: 50px;
+    left: 100%;
+    width: 50%;
+    height: 100%;
+    margin-bottom: 35px;
+    right: 0%;
+    background: #fff;
+    padding: 10px;
+    
+    -webkit-transition: all .3s ease-in-out;
+    -moz-transition: all .3s ease-in-out;
+    -ms-transition: all .3s ease-in-out;
+    -o-transition: all .3s ease-in-out;
+    transition: all .3s ease-in-out;
+}
+
+.myContainer{
+    margin-right: auto;
+    margin-left: auto;
+    margin-bottom: 5px;
+    padding-left: 15px;
+    padding-right: 15px;
+    width: 100%;
+    clear: both;
+}
+
+#section-einstellungen.active {
+    left: 50%;
+}
+
+.form-createLocation {
+    max-width: 330px;
+    padding: 15px;
+    margin: 0 auto;
+}
+
+.form-UserTable {
+    max-width: 500px;
+    padding: 15px;
+    margin: 0 auto;
+}
+
+.onoffswitch {
+    position: relative; width: 90px;
+    -webkit-user-select:none; -moz-user-select:none; -ms-user-select: none;
+
+    /* hier einmal float: left, damit das
+    element kein "display: block" mehr ist*/
+    float: left;
+}
+.onoffswitch-checkbox {
+    display: none;
+}
+.onoffswitch-label {
+    display: block; overflow: hidden; cursor: pointer;
+    border: 2px solid #999999; border-radius: 20px;
+}
+.onoffswitch-inner {
+    display: block; width: 200%; margin-left: -100%;
+    -moz-transition: margin 0.3s ease-in 0s; -webkit-transition: margin 0.3s ease-in 0s;
+    -o-transition: margin 0.3s ease-in 0s; transition: margin 0.3s ease-in 0s;
+}
+.onoffswitch-inner:before, .onoffswitch-inner:after {
+    display: block; float: left; width: 50%; height: 30px; padding: 0; line-height: 30px;
+    font-size: 14px; color: white; font-family: Trebuchet, Arial, sans-serif; font-weight: bold;
+    -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box;
+}
+.onoffswitch-inner:before {
+    content: "ON";
+    padding-left: 10px;
+    background-color: #2FCCFF; color: #FFFFFF;
+}
+.onoffswitch-inner:after {
+    content: "OFF";
+    padding-right: 10px;
+    background-color: #EEEEEE; color: #999999;
+    text-align: right;
+}
+.onoffswitch-switch {
+    display: block; width: 18px; margin: 6px;
+    background: #FFFFFF;
+    border: 2px solid #999999; border-radius: 20px;
+    position: absolute; top: 0; bottom: 0; right: 56px;
+    -moz-transition: all 0.3s ease-in 0s; -webkit-transition: all 0.3s ease-in 0s;
+    -o-transition: all 0.3s ease-in 0s; transition: all 0.3s ease-in 0s;
+    height: 22px;
+}
+.onoffswitch-checkbox:checked + .onoffswitch-label .onoffswitch-inner {
+    margin-left: 0;
+}
+.onoffswitch-checkbox:checked + .onoffswitch-label .onoffswitch-switch {
+    right: 0px;
+}
+
+.label-OnOff-Switch {
+    padding: 6px 0 0 10px;
+    display: inline-block;
+}
+
+.angular-google-map-container { height: 400px; }
+
+.gridStyle {
+    border: 1px solid rgb(212,212,212);
+    width: 100%;
+    height: 300px
+}
+
+.eventGridStyle {
+    border: 1px solid rgb(212,212,212);
+    width: 100%;
+    height: 150px;
+}
+
+.locationsGridStyle {
+    border: 1px solid rgb(212,212,212);
+    width: 100%;
+    height: 200px;
+}
+
+.details{
+    height: 200px;
+    overflow-y: scroll;
+}
+
+.userdetails{
+    height: 300px;
+    overflow-y: scroll;
+}
+
+.adminManageUserPage{
+    height: 500px;
+    overflow-y: scroll;
+}
+
+.green {
+    border-style: solid;
+    border-color: limegreen;
+}
+
+.yellow {
+    border-style: solid;
+    border-color: yellowgreen;
+}
+
+.blue {
+    border-style: solid;
+    border-color: cornflowerblue;
+}
+
+.orange {
+    border-style: solid;
+    border-color: darkorange;
+}
+
+.none {
+    border-style: none;
+}
+
+
+
+*, *:before, *:after {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+html {
+    font-family: Helvetica, Arial, sans-serif;
+    font-size: 100%;
+    /*ackground: #333;*/
+    -webkit-font-smoothing: antialiased;
+}
+
+#page-wrapper {
+    width: 400px;
+    background: #FFFFFF;
+    padding: 1em;
+    margin: 1em auto;
+    border-top: 5px solid #69c773;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.8);
+}
+
+h1 {
+    margin-top: 0;
+}
+
+h2 {
+    margin: 1em 0;
+    font-size: 1em;
+}
+
+details {
+    border-radius: 3px;
+    background: #EEE;
+    margin: 1em 0;
+}
+
+summary {
+    background: #333;
+    color: #FFF;
+    border-radius: 3px;
+    padding: 5px 10px;
+    outline: none;
+}
+
+/* Style the summary when details box is open */
+details[open] summary {
+    background: #69c773;
+    color: #333;
+}
+
+/* Custom Markers */
+#custom-marker summary {
+    font-size: 17px;
+    vertical-align: top;
+}
+
+#custom-marker summary::-webkit-details-marker {
+    display: none;
+}
+
+#custom-marker summary:before {
+    display: inline-block;
+    width: 18px;
+    height: 18px;
+    margin-right: 8px;
+    content: "";
+    background-image: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/4621/treehouse-icon-sprite.png);
+    background-repeat: no-repeat;
+    background-position: 0 0;
+}
+
+#custom-marker[open] summary:before {
+    background-position: -18px 0;
+}
+
+
+table {
+    border: 0;
+    width: 100%;
+}
+
+th, td {
+    vertical-align: top;
+    text-align: left;
+    padding: 0.5em;
+    border-bottom: 1px solid #E6E6E6;
+}
+
+th {
+    width: 200px;
+}
+
+ul {
+    list-style: none;
+    margin: 0;
+    padding: 10px;
+}
+
+li {
+    display: inline;
+    padding-right: 10px;
+}
+
+a {
+    color: #08C;
+    text-decoration: none;
+}
+
+/*Table/Map onoff switch*/
+
+.onoffswitchtm {
+    position: relative; width: 90px;
+    -webkit-user-select:none; -moz-user-select:none; -ms-user-select: none;
+    display: inline-block; height: 34px; overflow: hidden; padding: 0;
+    float: left;
+    margin-left: 5px;
+}
+.onoffswitchtm-checkbox {
+    display: none;
+}
+.onoffswitchtm-label {
+    display: block; overflow: hidden; cursor: pointer;
+    border: 2px solid #999999; border-radius: 20px;
+}
+.onoffswitchtm-inner {
+    display: block; width: 200%; margin-left: -100%;
+    -moz-transition: margin 0.3s ease-in 0s; -webkit-transition: margin 0.3s ease-in 0s;
+    -o-transition: margin 0.3s ease-in 0s; transition: margin 0.3s ease-in 0s;
+}
+.onoffswitchtm-inner:before, .onoffswitchtm-inner:after {
+    display: block; float: left; width: 50%; height: 30px; padding: 0; line-height: 30px;
+    font-size: 14px; color: white; font-family: Trebuchet, Arial, sans-serif; font-weight: bold;
+    -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box;
+}
+.onoffswitchtm-inner:before {
+    content: "Map";
+    padding-left: 10px;
+    background-color: #2FCCFF; color: #FFFFFF;
+}
+.onoffswitchtm-inner:after {
+    content: "Tabelle";
+    padding-right: 10px;
+    background-color: #EEEEEE; color: #999999;
+    text-align: right;
+}
+.onoffswitchtm-switch {
+    display: block; width: 18px; margin: 6px;
+    background: #FFFFFF;
+    border: 2px solid #999999; border-radius: 20px;
+    position: absolute; top: 0; bottom: 0; right: 56px;
+    -moz-transition: all 0.3s ease-in 0s; -webkit-transition: all 0.3s ease-in 0s;
+    -o-transition: all 0.3s ease-in 0s; transition: all 0.3s ease-in 0s;
+}
+.onoffswitchtm-checkbox:checked + .onoffswitchtm-label .onoffswitchtm-inner {
+    margin-left: 0;
+}
+.onoffswitchtm-checkbox:checked + .onoffswitchtm-label .onoffswitchtm-switch {
+    right: 0px;
+}
+
+/*grid z index*/
+.z-index-grid > div{
+    z-index: 0;
+}
+
+.detail-label{
+    display: block;
+    font-size: 10px;
+}
+
+.comment-time{
+    font-size: 10px;
+    position: absolute;
+    top: 1px;
+    right: 10px;
+    color: #428bca;
+}
+
+.padding-10{
+    padding-top: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-bottom: 10px;
+}
+
+.margin-bottom-5{
+    margin-bottom: 5px;
+}
