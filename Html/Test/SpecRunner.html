@@ -1,0 +1,50 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <title>Jasmine Test Runner</title>
+
+    <!-- Jasmine stylesheet -->
+    <link rel="stylesheet" type="text/css" href="Jasmine/lib/jasmine-1.3.1/jasmine.css">
+
+    <!-- Jasmine core and HTML -->
+    <script type="text/javascript" src="Jasmine/lib/jasmine-1.3.1/jasmine.js"></script>
+    <script type="text/javascript" src="Jasmine/lib/jasmine-1.3.1/jasmine-html.js"></script>
+   <!--<script type="text/javascript" src="../../Scripts/jasmine.async.js"></script>-->
+
+    <!-- JavaScript libraries on which source depends -->
+    <script type="text/javascript" src="../Common/Libraries/angular.min.js"></script>
+    <script type="text/javascript" src="../Common/Libraries/angular-mock.js"></script>
+
+    <!--This dependencies are needed because of the llbec module-->
+    <script type="text/javascript" src="../Common/Libraries/underscore.js"></script>
+    <script type="text/javascript" src="../Common/Libraries/angular-google-maps.js"></script>
+    <script type="text/javascript" src="../Common/Libraries/ngAutocomplete.js"></script>
+    <script type="text/javascript" src="../Common/Libraries/angular-cookies.js"></script>
+    <script type="text/javascript" src="../Common/Libraries/ng-grid/js/jquery-1.10.1.min.js"></script>
+    <script type="text/javascript" src="../Common/Libraries/ng-grid/js/ng-grid.min.js"></script>
+    <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?libraries=places&sensor=false"></script>
+
+    <!-- Script source to test and other files on which source depends -->
+    <script type="text/javascript" src="../Index.js"></script>
+    <script src="../Core/filter/location.js"></script>
+    <script src="../Core/Services/HttpService.js"></script>
+    <script src="../Core/Services/FilterChangedService.js"></script>
+    <script src="../Core/Services/DatabaseLocationService.js"></script>
+    <script src="../Core/Services/filterService.js"></script>
+
+
+    <!-- Scripts with helper functions, for example to prepare test data -->
+    <script type="text/javascript" src="HelperFunctions/dateAndTimeHelper.js"></script>
+
+    <!-- Test script -->
+    <script type="text/javascript" src="spec/FilterComponentTest.js"></script>
+    <script type="text/javascript" src="spec/FilterServiceTest.js"></script>
+</head>
+<body>
+<script type="text/javascript">
+    jasmine.getEnv().addReporter(new jasmine.TrivialReporter());
+    jasmine.getEnv().execute();
+</script>
+</body>
+</html>

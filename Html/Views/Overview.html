@@ -1,0 +1,167 @@
+<div>
+    <div id="section-header">
+        <div ng-show="checkUser()">
+            <ul class="nav nav-tabs">
+                <li class="active"><a href="#">Home</a></li>
+                <li><a href="#/adminPages/createEvent">Events verwalten</a></li>
+                <li ng-hide="!userIsAdmin()"><a href="#/adminPages/createLocation">Locations verwalten</a></li>
+                <li ng-hide="!userIsAdmin()"><a href="#/adminPages/manageUsers">User verwalten</a></li>
+                <li>
+                    <div class="right">
+                        <label><span class="glyphicon glyphicon-user"></span>Hallo {{getUserName()}}</label>
+                        <a class="btn" role="button" href="#" ng-click="logout()"><span class="glyphicon glyphicon-log-out"></span>Logout</a>
+                    </div>
+                </li>
+            </ul>
+
+        </div>
+        <div ng-hide="checkUser()">
+            <a class="btn right" role="button" href="#/adminPages/login"><span class="glyphicon glyphicon-log-in"></span> Login</a>
+        </div>
+    </div>
+
+    <div ng-controller="databaseController">
+            <div style="padding: 5px">
+                <div style="float:left">
+                    <button ng-click="activateSuche()" class="btn btn-info">Filter</button>
+                </div>
+                <div class="onoffswitchtm">
+                    <input type="checkbox" name="onoffswitchtm" class="onoffswitchtm-checkbox" id="myonoffswitchtm" ng-model="checked">
+                    <label class="onoffswitchtm-label" for="myonoffswitchtm">
+                        <span class="onoffswitchtm-inner"></span>
+                        <span class="onoffswitchtm-switch"></span>
+                    </label>
+                </div>
+            </div>
+        <main id="section-main" class="section-main">
+            <div ng-controller="mapController" ng-hide="checked">
+                <google-map center=map.center zoom="map.zoom" draggable="true" fit="true" control="map.control">
+                   <marker coords="map.userCoords"></marker>
+                   <marker click="markerClicked(bar)" icon="bar.locEvents | byDate:filterChangedService.filterDate | byTime:filterChangedService.filterTime:filterChangedService.filterByTime | getIconFromFilterResultBar" options="bar.options" coords="bar.coords" ng-repeat="bar in filterService.mapLocations.bars"></marker>
+                   <marker click="markerClicked(club)" icon="club.locEvents | byDate:filterChangedService.filterDate | byTime:filterChangedService.filterTime:filterChangedService.filterByTime | getIconFromFilterResultClub" options="club.options" coords="club.coords" ng-repeat="club in filterService.mapLocations.clubs"></marker>
+                   <marker click="markerClicked(other)" icon="other.locEvents | byDate:filterChangedService.filterDate | byTime:filterChangedService.filterTime:filterChangedService.filterByTime | getIconFromFilterResultRestaurant" options="other.options" coords="other.coords" ng-repeat="other in filterService.mapLocations.others"></marker>
+                   <marker click="markerClicked(restaurant)" icon="restaurant.locEvents | byDate:filterChangedService.filterDate | byTime:filterChangedService.filterTime: filterChangedService.filterByTime | getIconFromFilterResultOther" options="restaurant.options" coords="restaurant.coords" ng-repeat="restaurant in filterService.mapLocations.restaurants"></marker>
+                </google-map>
+            </div>
+
+            <div style="margin: 5px" ng-controller="TableController" ng-show="checked">
+                <div style="bottom: 5px; width: 798px" class="input-group z-index-grid">
+                    <span class="input-group-addon glyphicon glyphicon-search" style="top: 0px"></span>
+                    <input style="z-index: 0" class="form-control" type="text" ng-model="filterOptions.filterText" placeholder="Filter Text">
+                </div>
+                <div class="gridStyle z-index-grid" ng-grid="gridOptions"></div>
+            </div>
+        </main>
+
+        <section id="section-suche" class="{{sections.filterSection.css}} panel panel-info" text="a" ng-controller="filterController">
+            <div class="panel panel-info">
+                <div class="panel-heading">Typ Filter</div>
+                <div class="panel-body">
+                    <div class="myContainer">
+                        <div class="onoffswitch">
+                            <input type="checkbox" name="filterBars" id="filterBars" class="onoffswitch-checkbox" ng-model="filterChangedService.filterBars">
+                            <label class="onoffswitch-label" for="filterBars">
+                                <span class="onoffswitch-inner"></span>
+                                <span class="onoffswitch-switch"></span>
+                            </label>
+                        </div>
+                        <label class="label-OnOff-Switch">Bars</label>
+                    </div>
+                    <div class="myContainer">
+                        <div class="onoffswitch">
+                            <input type="checkbox" name="filterRestaurants" id="filterRestaurants" class="onoffswitch-checkbox" ng-model="filterChangedService.filterRestaurants">
+                            <label class="onoffswitch-label" for="filterRestaurants">
+                                <span class="onoffswitch-inner"></span>
+                                <span class="onoffswitch-switch"></span>
+                            </label>
+                        </div>
+                        <label class="label-OnOff-Switch">Restaurants</label>
+                    </div>
+                    <div class="myContainer">
+                        <div class="onoffswitch">
+                            <input type="checkbox" name="filterClubs" id="filterClubs" class="onoffswitch-checkbox" ng-model="filterChangedService.filterClubs">
+                            <label class="onoffswitch-label" for="filterClubs">
+                                <span class="onoffswitch-inner"></span>
+                                <span class="onoffswitch-switch"></span>
+                            </label>
+                        </div>
+                        <label class="label-OnOff-Switch">Clubs</label>
+                    </div>
+                    <div class="myContainer">
+                        <div class="onoffswitch">
+                            <input type="checkbox" name="filterOther" id="filterOther" class="onoffswitch-checkbox" ng-model="filterChangedService.filterOther">
+                            <label class="onoffswitch-label" for="filterOther">
+                                <span class="onoffswitch-inner"></span>
+                                <span class="onoffswitch-switch"></span>
+                            </label>
+                        </div>
+                        <label class="label-OnOff-Switch">Other</label>
+                    </div>
+                </div>
+            </div>
+            <div class="panel panel-info">
+                <div class="panel-heading">Zeit/Datum Filter</div>
+                <div class="panel-body">
+                    <form class="form-horizontal" role="form">
+                        <div class="form-group">
+                            <div class="col-sm-2">
+                                <button ng-click="setCurrentDate()">Heute</button>
+                            </div>
+                            <div class="col-sm-10">
+                                <input type="text" name="date" id="date" ng-model="filterChangedService.filterDate">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-sm-2">
+                                <div class="checkbox">
+                                    <label class="control-label">
+                                        <input ng-model="filterChangedService.filterByTime" type="checkbox">Zeit
+                                    </label>
+                                </div>
+                                <button ng-click="setCurrentTime()">Jetzt</button>
+                            </div>
+                            <div class="col-sm-10">
+                                <input ng-model="filterChangedService.filterTime" type="time">
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div class="panel panel-info">
+                <div class="panel-heading">Ort/Radius Filter</div>
+                <div class="panel-body">
+                    <form class="form-horizontal" role="form">
+                        <div class="form-group">
+                            <div class="col-sm-2">
+                                <div class="radio">
+                                    <label class="control-label">
+                                        <input id="radiusRange" type="radio" ng-model="filterChangedService.locationFilter" value="byCurrentLocation">Standort
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="col-sm-10">
+                                <div class="radio">
+                                    <label>
+                                        {{filterChangedService.filterRadius}} km <input type="range" id="slider" min="0" max={{filterChangedService.maximumFilterRadius}} step="1" ng-model="filterChangedService.filterRadius" ng-change="radiusChanged()">
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-sm-2">
+                                <div class="radio">
+                                    <label class="control-label" for="address">
+                                        <input id="cityCheckbox" type="radio" ng-model="filterChangedService.locationFilter" value="byCity"> Stadt
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="col-sm-10">
+                                <input class="form-control" id="address" name="address" type="text" ng-autocomplete="result" options="options" details="details">
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </div>
+</div>

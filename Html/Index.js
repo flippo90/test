@@ -1,34 +1,34 @@
-var app = angular.module('llbec', ['google-maps', 'ngAutocomplete', 'locationFilters', 'ngGrid', 'ngCookies']);
+var app = angular.module('llbec', ['google-maps', 'ngAutocomplete', 'locationFilters', 'ngGrid', 'ngCookies', 'ui.bootstrap']);
 
 app.config(['$routeProvider',
     function($routeProvider) {
         $routeProvider.
             when('/adminPages/createEvent', {
-                templateUrl: 'AdminPages/createEvent.html',
+                templateUrl: 'Views/AdminPages/createEvent.html',
                 controller: 'createEventController'
             }).
             when('/adminPages/createLocation', {
-                templateUrl: 'AdminPages/createLocation.html',
+                templateUrl: 'Views/AdminPages/createLocation.html',
                 controller: 'createLocationController'
             }).
             when('/adminPages/manageUsers', {
-                templateUrl: 'AdminPages/manageUsers.html',
+                templateUrl: 'Views/AdminPages/manageUsers.html',
                 controller: 'manageUsersController'
             }).
             when('/adminPages/login', {
-                templateUrl: 'AdminPages/Login.html',
+                templateUrl: 'Views/AdminPages/Login.html',
                 controller: 'loginController'
             }).
             when('/Overview', {
-                templateUrl: 'Overview.html',
+                templateUrl: 'Views/Overview.html',
                 controller: 'sectionController'
             }).
             when('/EventDetail', {
-                templateUrl: 'EventDetail.html',
+                templateUrl: 'Views/EventDetail.html',
                 controller: 'eventDetailController'
             }).
             when('/LocationDetail', {
-                templateUrl: 'LocationDetail.html',
+                templateUrl: 'Views/LocationDetail.html',
                 controller: 'locationDetailController'
             }).
             otherwise({
@@ -57,7 +57,6 @@ app.controller('logoutController', ['$scope', 'AuthenticationService', function(
 }]);
 
 app.controller('sectionController', ['$scope', '$cookieStore', 'AuthenticationService', function($scope, $cookieStore, AuthenticationService){
-
     var checked = $cookieStore.get('view');
     if (!angular.isUndefined(checked))
         $scope.checked = checked;

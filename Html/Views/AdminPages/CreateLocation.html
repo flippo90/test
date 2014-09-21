@@ -1,0 +1,25 @@
+<ul class="nav nav-tabs">
+    <li><a href="#">Home</a></li>
+    <li><a href="#/adminPages/createEvent">Events verwalten</a></li>
+    <li class="active"><a href="#/adminPages/createLocation">Locations verwalten</a></li>
+    <li><a href="#/adminPages/manageUsers">User verwalten</a></li>
+</ul>
+
+<div>
+    <table class="table table-striped">
+        <tr>
+            <th>Location Name</th>
+            <th>Adresse</th>
+            <th>Edit</th>
+            <th>Delete</th>
+        </tr>
+        <tr ng-repeat="location in locations()">
+            <td>{{location.name}}</td>
+            <td>{{location.address}}</td>
+            <td ng-click="open(location, true)"><span class="glyphicon glyphicon-edit"></span></td>
+            <td ng-click="deleteLocation(location)"><span class="glyphicon glyphicon-trash"></span></td>
+        </tr>
+    </table>
+    <button ng-click="open(null, false)" class="btn btn-lg btn-primary btn-block">Location erstellen</button>
+
+</div>

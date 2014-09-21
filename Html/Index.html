@@ -1,63 +1,65 @@
 <!doctype html>
 <html ng-app="llbec">
 <head>
-    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link rel="stylesheet" type="text/css" href="Common/css/style.css">
+    <link rel="stylesheet" type="text/css" href="Common/Libraries/jquery-ui-1.11.1.custom/jquery-ui.css">
 
-    <link rel="stylesheet" type="text/css" href="Libraries/ng-grid/css/ng-grid.min.css" />
-    <link rel="stylesheet" type="text/css" href="Libraries/ng-grid/css/style.css" />
-    <script type="text/javascript" src="Libraries/ng-grid/js/jquery-1.10.1.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="Common/Libraries/ng-grid/css/ng-grid.min.css" />
+    <link rel="stylesheet" type="text/css" href="Common/Libraries/ng-grid/css/style.css" />
+    <script type="text/javascript" src="Common/Libraries/ng-grid/js/jquery-1.10.1.min.js"></script>
 
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.7/angular.min.js"></script>
-    <script src="Libraries/ui-bootstrap-tpls-0.11.0.min.js"></script>
+    <script src="Common/Libraries/angular.min.js"></script>
+    <script src="Common/Libraries/ui-bootstrap-0.9.0.min.js"></script>
+    <script src="Common/Libraries/ui-bootstrap-tpls-0.9.0.min.js"></script>
 
-    <script type="text/javascript" src="Libraries/ng-grid/js/ng-grid.min.js"></script>
+    <script type="text/javascript" src="Common/Libraries/ng-grid/js/ng-grid.min.js"></script>
 
-    <script language="JavaScript" type="text/javascript" src="Libraries/jquery-2.1.0.js"></script>
+    <script language="JavaScript" type="text/javascript" src="Common/Libraries/jquery-2.1.0.js"></script>
 
     <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?libraries=places&sensor=false"></script>
-    <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>
+    <script src="Common/Libraries/jquery-2.1.0.js"></script>
+    <script src="Common/Libraries/jquery-ui-1.11.1.custom/jquery-ui.min.js"></script>
 
-    <link rel="stylesheet" type="text/css" href="Libraries/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="Common/Libraries/bootstrap.min.css">
 
-    <script src="Libraries/bootstrap.min.js"></script>
-
+    <script src="Common/Libraries/bootstrap.min.js"></script>
+    <script src="Core/jqueryUiComponents/jQueryUiComponents.js"></script>
 
     <script src="Index.js"></script>
-    <script src="CommentDirective.js"></script>
-    <script src="FilterController.js"></script>
-    <script src="DetailService.js"></script>
-    <script src="TblController.js"></script>
-    <script src="MapController.js"></script>
-    <script src="DatabaseController.js"></script>
-    <script src="DataFilterController.js"></script>
-    <script src="LocationDetailController.js"></script>
-    <script src="EventDetailController.js"></script>
+    <script src="Core/Directives/CommentDirective.js"></script>
 
-    <script src="AdminPages/createLocation.js"></script>
-    <script src="AdminPages/createEvent.js"></script>
-    <script src="AdminPages/manageUsers.js"></script>
-    <script src="AdminPages/LoginController.js"></script>
-    <script src="AuthenticationService.js"></script>
+    <script src="Core/Services/DetailService.js"></script>
+    <script src="Core/Services/HelperService.js"></script>
+    <script src="Core/Services/HttpService.js"></script>
+    <script src="Core/Services/AuthenticationService.js"></script>
+    <script src="Core/Services/FilterChangedService.js"></script>
+    <script src="Core/Services/DatabaseLocationService.js"></script>
+    <script src="Core/Services/filterService.js"></script>
+    <script src="Core/Services/EventService.js"></script>
 
-    <script src="Libraries/underscore.js"></script>
-    <script src="Libraries/angular-google-maps.js"></script>
-    <script src="Libraries/ngAutocomplete.js"></script>
-    <script src="Libraries/angular-cookies.js"></script>
+    <script src="Core/Controller/FilterController.js"></script>
+    <script src="Core/Controller/TblController.js"></script>
+    <script src="Core/Controller/MapController.js"></script>
+    <script src="Core/Controller/DatabaseController.js"></script>
+    <script src="Core/Controller/LocationDetailController.js"></script>
+    <script src="Core/Controller/EventDetailController.js"></script>
 
-    <script src="createTestData.js"></script>
-    <div ng-controller="logoutController">
-        <div ng-show="checkUser()">
-            <label>Hallo {{getUserName()}}</label>
-            <a ng-show="userIsAdmin()" class="btn" role="button" href="#/adminPages/manageUsers">Admin Stuff</a>
-            <a ng-hide="userIsAdmin()" class="btn" role="button" href="#/adminPages/createEvent">Events verwalten</a>
-            <button ng-click="logout()">Logout</button>
-        </div>
-        <div ng-hide="checkUser()">
-            <a style="float: right" class="btn" role="button" href="#/adminPages/login">Login</a>
-        </div>
-    </div>
+    <script src="Core/Controller/createLocation.js"></script>
+    <script src="Core/Controller/createEvent.js"></script>
+    <script src="Core/Controller/manageUsers.js"></script>
+    <script src="Core/Controller/LoginController.js"></script>
+
+    <script src="Core/filter/location.js"></script>
+
+    <script src="Common/Libraries/underscore.js"></script>
+    <script src="Common/Libraries/angular-google-maps.js"></script>
+    <script src="Common/Libraries/ngAutocomplete.js"></script>
+    <script src="Common/Libraries/angular-cookies.js"></script>
+
+    <script src="Common/HelpFiles/createTestData.js"></script>
+
 </head>
-<body>
-    <div ng-view></div>
+<body class="filterPage">
+    <div ng-controller="logoutController" ng-view></div>
 </body>
 </html>

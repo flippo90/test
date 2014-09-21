@@ -1,0 +1,58 @@
+<ul class="nav nav-tabs">
+    <li><a href="#">Home</a></li>
+    <li><a href="#/adminPages/createEvent">Events verwalten</a></li>
+    <li><a href="#/adminPages/createLocation">Locations verwalten</a></li>
+    <li class="active"><a href="#/adminPages/manageUsers">User verwalten</a></li>
+</ul>
+
+<div class="adminManageUserPage">
+    <div class="container">
+        <details>
+            <summary>Benutzer hinzufügen</summary>
+            <div class="">
+                <form class="form-UserTable margin-bottom-5" role="form">
+                    <label >Benutzername</label>
+                    <input type="text" ng-model="user.username" class="form-control" autofocus placeholder="Benutzername">
+                    <label >Email</label>
+                    <input type="text" ng-model="user.email" class="form-control" placeholder="Email Adresse">
+                    <label >Rolle</label>
+                    <select ng-model="user.role" ng-options="r.name for r in roles" class="form-control" ></select>
+                    <label >Verantwortliche Locations</label>
+                    <label ng-repeat="l in user.responsibilities">{{l.name}};</label>
+                    <div class="eventGridStyle" ng-grid="addUserGridOptions"></div>
+                    <button ng-click="addUser(user)" class="btn btn-lg btn-primary btn-block"><i class="glyphicon-plus"></i> Hinzufügen</button>
+                </form>
+            </div>
+        </details>
+
+        <details>
+            <summary>Benutzer löschen</summary>
+            <div class="">
+                <form class="form-UserTable margin-bottom-5" role="form">
+                    Lösche: <label ng-repeat="user in usersToDelete">{{user.username}};</label>
+                    <div class="eventGridStyle" ng-grid="deleteUserGridOptions"></div>
+                    <button ng-click="removeUser()" class="btn btn-lg btn-primary btn-block"><i class="glyphicon-minus-sign"></i> Löschen</button>
+                </form>
+            </div>
+        </details>
+
+        <details>
+            <summary>Benutzer verwalten</summary>
+            <div class="">
+                <form class="form-UserTable margin-bottom-5" role="form">
+                    <div class="eventGridStyle" ng-grid="editUserGridOptions"></div>
+                    <div ng-repeat="u in userToEdit">
+                        <label for="username">Benutzername</label>
+                        <input id="username" type="text" ng-model="u.username" class="form-control" autofocus placeholder="Benutzername">
+                        <label>Email</label>
+                        <input type="text" ng-model="u.email" class="form-control" placeholder="Email Adresse">
+                        <label>Passwort</label>
+                        <input type="text" ng-model="u.password" class="form-control" autofocus placeholder="Passwort">
+                        <input type="checkbox" ng-repeat="r in u.responsibilities">
+                        <button ng-click="saveChanges(u.id)" class="btn btn-lg btn-primary btn-block"><i class="glyphicon-floppy-disk"></i> Speichern</button>
+                    </div>
+                </form>
+            </div>
+        </details>
+    </div>
+</div>

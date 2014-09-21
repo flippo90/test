@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Erstellungszeit: 10. Aug 2014 um 12:09
+-- Erstellungszeit: 21. Sep 2014 um 11:20
 -- Server Version: 5.6.16
 -- PHP-Version: 5.5.9
 
@@ -55,40 +55,24 @@ CREATE TABLE IF NOT EXISTS `eventkommentare` (
   `EventId` int(11) NOT NULL,
   `Timestamp` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`Id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=28 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=53 ;
 
 --
 -- Daten für Tabelle `eventkommentare`
 --
 
 INSERT INTO `eventkommentare` (`Id`, `Text`, `Writer`, `EventId`, `Timestamp`) VALUES
-(1, 'Das ist ein kommentar', 'event$eventId=undefined', 0, '2014-07-13 11:25:32'),
-(2, '', '$eventId=undefined', 0, '2014-07-13 11:25:32'),
-(3, 'bla', 'bla$eventId=undefined', 0, '2014-07-13 11:25:32'),
-(4, 'bla', 'bla', 0, '2014-07-13 11:25:32'),
-(5, 'bla', 'bla', 0, '2014-07-13 11:25:32'),
-(6, 'bla', 'blaa', 0, '2014-07-13 11:25:32'),
-(7, 'post', 'comment', 0, '2014-07-13 11:25:32'),
-(8, 'Bla', 'Blaaa', 43, '2014-07-13 11:25:32'),
-(9, 'blaaaab', 'blaaaaaaa', 43, '2014-07-13 11:25:32'),
-(10, 'another', 'comment', 53, '2014-07-13 11:25:32'),
-(11, 'Hallo ein', 'Kommentar', 72, '2014-07-13 11:25:32'),
-(12, '1', '2', 72, '2014-07-13 11:25:32'),
-(13, 'hallo', 'peter', 203, '2014-07-13 11:25:32'),
-(14, '21', '31', 48, '2014-07-13 11:25:32'),
-(15, '21', '34', 48, '2014-07-13 11:25:32'),
-(16, '21', '40', 48, '2014-07-13 11:25:32'),
-(17, 'c', 'd', 48, '2014-07-13 11:25:32'),
-(18, 'bla', 'mein bla', 48, '2014-07-13 11:25:32'),
-(19, 'kommentar', 'von', 48, '2014-07-13 11:25:32'),
-(20, 'kommentar mit timestamp', 'bla', 48, '2014-07-13 11:36:15'),
-(21, 'Nooch ein KOmmentar', 'mit Timestamp', 48, '2014-07-13 11:40:56'),
-(22, 'Das', 'ist ein', 226, '2014-07-23 08:31:54'),
-(23, 'Noch ein', 'Kommentar', 226, '2014-07-23 08:32:13'),
-(24, 'check', 'if', 226, '2014-07-23 08:34:54'),
-(25, 'this', 'works', 226, '2014-07-23 08:35:10'),
-(26, 'Mein', 'Kommentar', 231, '2014-07-23 08:39:07'),
-(27, 'Mein erster', 'Kommentar', 229, '2014-07-23 08:41:12');
+(38, 'eins', 'eins', 326, '2014-08-16 20:21:30'),
+(39, 'zwei', 'zwei', 331, '2014-08-16 20:22:20'),
+(44, 'drei', 'drei', 331, '2014-08-16 20:49:44'),
+(45, 'vier', 'vier', 331, '2014-08-16 20:51:59'),
+(46, 'sieben', 'acht', 331, '2014-08-16 20:52:10'),
+(47, 'zwei', 'zwei', 326, '2014-08-16 20:52:50'),
+(48, 'drei', 'drei', 326, '2014-08-16 20:52:54'),
+(49, 'vier', 'fuenf', 326, '2014-08-16 20:53:00'),
+(50, '', '', 0, '2014-08-27 20:04:42'),
+(51, '', '', 0, '2014-08-27 20:07:49'),
+(52, 'd', 'ddd', 326, '2014-09-13 10:53:07');
 
 -- --------------------------------------------------------
 
@@ -107,30 +91,23 @@ CREATE TABLE IF NOT EXISTS `events` (
   `Location` int(5) NOT NULL,
   `Likes` int(5) NOT NULL,
   PRIMARY KEY (`Id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=247 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=358 ;
 
 --
 -- Daten für Tabelle `events`
 --
 
 INSERT INTO `events` (`Id`, `Name`, `Description`, `Specials`, `Date`, `Uhrzeit`, `Turnus`, `Location`, `Likes`) VALUES
-(43, 'Barfuesser', 'Barfuesser', 'Barfuesser', '2013-06-01', '14-13', 0, 2, 0),
 (44, 'theatro', 'theatro', 'theatro', '2014-06-01', '12-8', 0, 5, 0),
 (45, 'myers', 'myers', 'myers', '2014-06-01', '5-18', 0, 6, 0),
 (46, 'zur forelle', 'zur forelle', 'zur forelle', '2014-06-01', '23-13', 0, 4, 0),
-(47, 'capos', 'capos', 'capos', '2013-06-01', '8-11', 0, 3, 0),
 (48, 'tortuga', 'tortuga', 'tortuga', '2014-06-01', '19-5', 0, 7, 0),
-(49, 'mÃ¼nster', 'mÃ¼nster', 'mÃ¼nster', '2013-06-01', '20-1', 0, 9, 0),
-(50, 'Theater', 'Theater', 'Theater', '2013-06-01', '10-19', 0, 8, 0),
 (51, 'choclet', 'choclet', 'choclet', '2014-06-01', '3-6', 0, 10, 0),
 (52, 'citrus', 'citrus', 'citrus', '2014-06-01', '19-3', 0, 11, 0),
-(53, 'bla', 'bla', 'bla', '2013-06-01', '12-2', 0, 13, 0),
 (54, 'roxy', 'roxy', 'roxy', '2014-06-01', '15-22', 0, 12, 0),
 (55, 'wiley', 'wiley', 'wiley', '2013-06-01', '19-2', 0, 14, 0),
 (56, 'olga', 'olga', 'olga', '2014-06-01', '10-22', 0, 17, 0),
 (57, 'schloessle', 'schloessle', 'schloessle', '2014-06-01', '18-9', 0, 15, 0),
-(58, 'olga', 'olga', 'olga', '2013-06-01', '6-19', 0, 16, 0),
-(59, 'olga', 'olga', 'olga', '2013-06-01', '8-3', 0, 18, 0),
 (60, 'joes', 'joes', 'joes', '2014-06-01', '20-24', 0, 19, 0),
 (61, 'cinemaxx', 'cinemaxx', 'cinemaxx', '2014-06-01', '11-19', 0, 20, 0),
 (62, 'barfÃ¼ÃŸer neu ulm', 'barfÃ¼ÃŸer neu ulm', 'barfÃ¼ÃŸer neu ulm', '2014-06-01', '24-23', 0, 21, 0),
@@ -317,7 +294,115 @@ INSERT INTO `events` (`Id`, `Name`, `Description`, `Specials`, `Date`, `Uhrzeit`
 (243, 'barfÃ¼ÃŸer neu ulm', 'barfÃ¼ÃŸer neu ulm', 'barfÃ¼ÃŸer neu ulm', '2013-07-23', '8-1', 0, 21, 0),
 (244, 'konzertsaal', 'konzertsaal', 'konzertsaal', '2014-07-23', '7-9', 0, 22, 0),
 (245, 'bla', 'bla', 'bla', '2013-07-23', '18-19', 0, 23, 0),
-(246, 'bla', 'bla', 'bla', '2014-07-23', '22-16', 0, 24, 0);
+(246, 'bla', 'bla', 'bla', '2014-07-23', '22-16', 0, 24, 0),
+(247, 'Barfuesser', 'Barfuesser', 'Barfuesser', '2013-08-12', '6-23', 0, 2, 0),
+(248, 'capos', 'capos', 'capos', '2014-08-12', '10-3', 0, 3, 0),
+(249, 'myers', 'myers', 'myers', '2013-08-12', '18-24', 0, 6, 0),
+(250, 'zur forelle', 'zur forelle', 'zur forelle', '2014-08-12', '21-22', 0, 4, 0),
+(251, 'theatro', 'theatro', 'theatro', '2014-08-12', '20-23', 0, 5, 0),
+(252, 'tortuga', 'tortuga', 'tortuga', '2013-08-12', '15-9', 0, 7, 0),
+(253, 'citrus', 'citrus', 'citrus', '2013-08-12', '11-17', 0, 11, 0),
+(254, 'Theater', 'Theater', 'Theater', '2013-08-12', '23-20', 0, 8, 0),
+(255, 'choclet', 'choclet', 'choclet', '2014-08-12', '11-1', 0, 10, 0),
+(256, 'mÃ¼nster', 'mÃ¼nster', 'mÃ¼nster', '2013-08-12', '7-5', 0, 9, 0),
+(257, 'roxy', 'roxy', 'roxy', '2013-08-12', '2-11', 0, 12, 0),
+(258, 'olga', 'olga', 'olga', '2014-08-12', '20-10', 0, 17, 0),
+(259, 'olga', 'olga', 'olga', '2013-08-12', '13-23', 0, 18, 0),
+(260, 'bla', 'bla', 'bla', '2013-08-12', '23-10', 0, 13, 0),
+(261, 'schloessle', 'schloessle', 'schloessle', '2014-08-12', '20-1', 0, 15, 0),
+(262, 'wiley', 'wiley', 'wiley', '2014-08-12', '4-14', 0, 14, 0),
+(263, 'joes', 'joes', 'joes', '2013-08-12', '21-22', 0, 19, 0),
+(264, 'olga', 'olga', 'olga', '2013-08-12', '3-2', 0, 16, 0),
+(265, 'cinemaxx', 'cinemaxx', 'cinemaxx', '2013-08-12', '3-15', 0, 20, 0),
+(266, 'barfÃ¼ÃŸer neu ulm', 'barfÃ¼ÃŸer neu ulm', 'barfÃ¼ÃŸer neu ulm', '2013-08-12', '12-20', 0, 21, 0),
+(267, 'konzertsaal', 'konzertsaal', 'konzertsaal', '2014-08-12', '7-15', 0, 22, 0),
+(268, 'bla', 'bla', 'bla', '2014-08-12', '5-2', 0, 23, 0),
+(269, 'bla', 'bla', 'bla', '2014-08-12', '1-8', 0, 24, 0),
+(272, 'tortuga', '', 'tortuga', '2013-08-14', '13-8', 0, 7, 0),
+(273, 'myers', '', 'myers', '2013-08-14', '24-22', 0, 6, 0),
+(274, 'theatro', '', 'theatro', '2013-08-14', '12-16', 0, 5, 0),
+(275, 'capos', '', 'capos', '2013-08-14', '18-15', 0, 3, 0),
+(276, 'zur forelle', '', 'zur forelle', '2013-08-14', '3-11', 0, 4, 0),
+(277, 'Barfuesser', '', 'Barfuesser', '2013-08-14', '2-9', 0, 2, 0),
+(278, 'mÃ¼nster', '', 'mÃ¼nster', '2013-08-14', '15-3', 0, 9, 0),
+(279, 'Theater', '', 'Theater', '2014-08-14', '4-12', 0, 8, 0),
+(280, 'choclet', '', 'choclet', '2013-08-14', '9-19', 0, 10, 0),
+(281, 'citrus', '', 'citrus', '2014-08-14', '2-2', 0, 11, 0),
+(282, 'roxy', '', 'roxy', '2013-08-14', '19-16', 0, 12, 0),
+(283, 'bla', '', 'bla', '2013-08-14', '4-13', 0, 13, 0),
+(284, 'wiley', '', 'wiley', '2014-08-14', '3-19', 0, 14, 0),
+(285, 'olga', '', 'olga', '2013-08-14', '10-17', 0, 16, 0),
+(286, 'schloessle', '', 'schloessle', '2013-08-14', '13-22', 0, 15, 0),
+(287, 'olga', '', 'olga', '2013-08-14', '21-10', 0, 17, 0),
+(288, 'olga', '', 'olga', '2014-08-14', '24-19', 0, 18, 0),
+(289, 'cinemaxx', '', 'cinemaxx', '2014-08-14', '7-11', 0, 20, 0),
+(290, 'joes', '', 'joes', '2013-08-14', '24-7', 0, 19, 0),
+(291, 'barfÃ¼ÃŸer neu ulm', '', 'barfÃ¼ÃŸer neu ulm', '2014-08-14', '14-22', 0, 21, 0),
+(292, 'konzertsaal', '', 'konzertsaal', '2014-08-14', '23-7', 0, 22, 0),
+(293, 'bla', '', 'bla', '2014-08-14', '11-10', 0, 24, 0),
+(294, 'bla', '', 'bla', '2014-08-14', '8-24', 0, 23, 0),
+(295, 'Joes Garage', '', 'Joes Garage', '2013-08-14', '13-5', 0, 25, 0),
+(296, 'capos', '', 'capos', '2013-08-15', '17-4', 0, 3, 0),
+(297, 'myers', '', 'myers', '2013-08-15', '10-1', 0, 6, 0),
+(298, 'Barfuesser', '', 'Barfuesser', '2013-08-15', '11-24', 0, 2, 0),
+(299, 'theatro', '', 'theatro', '2013-08-15', '4-7', 0, 5, 0),
+(300, 'zur forelle', '', 'zur forelle', '2014-08-15', '11-1', 0, 4, 0),
+(301, 'citrus', '', 'citrus', '2013-08-15', '1-12', 0, 11, 0),
+(302, 'mÃ¼nster', '', 'mÃ¼nster', '2013-08-15', '23-2', 0, 9, 0),
+(303, 'roxy', '', 'roxy', '2013-08-15', '11-19', 0, 12, 0),
+(304, 'Theater', '', 'Theater', '2014-08-15', '18-10', 0, 8, 0),
+(305, 'choclet', '', 'choclet', '2013-08-15', '9-9', 0, 10, 0),
+(306, 'olga', '', 'olga', '2013-08-15', '3-7', 0, 16, 0),
+(307, 'bla', '', 'bla', '2013-08-15', '9-14', 0, 13, 0),
+(308, 'wiley', '', 'wiley', '2013-08-15', '14-8', 0, 14, 0),
+(309, 'schloessle', '', 'schloessle', '2013-08-15', '3-10', 0, 15, 0),
+(310, 'olga', '', 'olga', '2013-08-15', '14-4', 0, 18, 0),
+(311, 'joes', '', 'joes', '2014-08-15', '13-20', 0, 19, 0),
+(312, 'cinemaxx', '', 'cinemaxx', '2013-08-15', '7-8', 0, 20, 0),
+(313, 'barfÃ¼ÃŸer neu ulm', '', 'barfÃ¼ÃŸer neu ulm', '2014-08-15', '5-7', 0, 21, 0),
+(314, 'konzertsaal', '', 'konzertsaal', '2013-08-15', '7-14', 0, 22, 0),
+(315, 'bla', '', 'bla', '2013-08-15', '9-21', 0, 23, 0),
+(316, 'bla', '', 'bla', '2013-08-15', '8-22', 0, 24, 0),
+(317, 'Joes Garage', '', 'Joes Garage', '2013-08-15', '18-11', 0, 25, 0),
+(318, 'olga', '', 'olga', '2013-08-15', '8-6', 0, 17, 0),
+(319, 'zur forelle', '', 'zur forelle', '2014-08-16', '20-5', 0, 4, 0),
+(320, 'Barfuesser', '', 'Barfuesser', '2014-08-16', '23-23', 0, 2, 0),
+(321, 'theatro', '', 'theatro', '2013-08-16', '18-23', 0, 5, 0),
+(322, 'tortuga', '', 'tortuga', '2014-08-16', '12-14', 0, 7, 0),
+(323, 'capos', '', 'capos', '2014-08-16', '23-4', 0, 3, 0),
+(324, 'Theater', '', 'Theater', '2014-08-16', '10-24', 0, 8, 0),
+(325, 'mÃ¼nster', '', 'mÃ¼nster', '2014-08-16', '8-6', 0, 9, 0),
+(326, 'choclet', '', 'choclet', '2014-08-16', '18-10', 0, 10, 0),
+(327, 'citrus', '', 'citrus', '2013-08-16', '21-13', 0, 11, 0),
+(328, 'joes', '', 'joes', '2013-08-16', '14-23', 0, 19, 0),
+(329, 'cinemaxx', '', 'cinemaxx', '2013-08-16', '19-8', 0, 20, 0),
+(330, 'konzertsaal', '', 'konzertsaal', '2014-08-16', '3-3', 0, 22, 0),
+(331, 'barfÃ¼ÃŸer neu ulm', '', 'barfÃ¼ÃŸer neu ulm', '2014-08-16', '10-5', 0, 21, 0),
+(332, 'olga', '', 'olga', '2014-08-16', '22-14', 0, 17, 0),
+(333, 'olga', '', 'olga', '2013-08-16', '9-15', 0, 18, 0),
+(334, 'Barfuesser', '', 'Barfuesser', '2013-08-17', '10-10', 0, 2, 0),
+(336, 'zur forelle', '', 'zur forelle', '2014-08-17', '13-4', 0, 4, 0),
+(337, 'tortuga', '', 'tortuga', '2013-08-17', '4-21', 0, 7, 0),
+(338, 'theatro', '', 'theatro', '2014-08-17', '7-24', 0, 5, 0),
+(339, 'capos', '', 'capos', '2013-08-17', '14-19', 0, 3, 0),
+(340, 'Theater', '', 'Theater', '2014-08-17', '24-11', 0, 8, 0),
+(341, 'choclet', '', 'choclet', '2013-08-17', '23-10', 0, 10, 0),
+(342, 'mÃ¼nster', '', 'mÃ¼nster', '2013-08-17', '11-4', 0, 9, 0),
+(343, 'roxy', '', 'roxy', '2013-08-17', '20-14', 0, 12, 0),
+(344, 'citrus', '', 'citrus', '2014-08-17', '23-18', 0, 11, 0),
+(345, 'bla', '', 'bla', '2013-08-17', '10-15', 0, 13, 0),
+(346, 'schloessle', '', 'schloessle', '2013-08-17', '6-21', 0, 15, 0),
+(347, 'olga', '', 'olga', '2014-08-17', '19-18', 0, 16, 0),
+(348, 'wiley', '', 'wiley', '2014-08-17', '10-11', 0, 14, 0),
+(349, 'olga', '', 'olga', '2014-08-17', '5-1', 0, 17, 0),
+(350, 'olga', '', 'olga', '2013-08-17', '12-7', 0, 18, 0),
+(351, 'joes', '', 'joes', '2013-08-17', '3-8', 0, 19, 0),
+(352, 'cinemaxx', '', 'cinemaxx', '2014-08-17', '13-4', 0, 20, 0),
+(353, 'konzertsaal', '', 'konzertsaal', '2014-08-17', '5-24', 0, 22, 0),
+(354, 'bla', '', 'bla', '2013-08-17', '22-14', 0, 23, 0),
+(355, 'bla', '', 'bla', '2014-08-17', '14-15', 0, 24, 0),
+(356, 'Joes Garage', '', 'Joes Garage', '2014-08-17', '20-10', 0, 25, 0),
+(357, 'barfÃ¼ÃŸer neu ulm', '', 'barfÃ¼ÃŸer neu ulm', '2014-08-17', '23-10', 0, 21, 0);
 
 -- --------------------------------------------------------
 
@@ -332,75 +417,20 @@ CREATE TABLE IF NOT EXISTS `locationkommentare` (
   `Writer` varchar(50) NOT NULL,
   `Timestamp` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`Id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=63 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=74 ;
 
 --
 -- Daten für Tabelle `locationkommentare`
 --
 
 INSERT INTO `locationkommentare` (`Id`, `Location`, `Text`, `Writer`, `Timestamp`) VALUES
-(1, 10, 'Hallo mein test', 'Peter', '2014-07-13 11:38:27'),
-(2, 10, 'Meine zweiter Test', 'Klaus', '2014-07-13 11:38:27'),
-(3, 7, 'Ein Kommentar fÃ¼r die Tortuga', 'TestUser', '2014-07-13 11:38:27'),
-(4, 10, 'Noch ein Kommentar', 'Maike', '2014-07-13 11:38:27'),
-(5, 10, 'Noch einer', 'Manu', '2014-07-13 11:38:27'),
-(6, 10, 'Bla', 'Bla', '2014-07-13 11:38:27'),
-(7, 7, 'Ein Kommentar', 'Besitzer', '2014-07-13 11:38:27'),
-(8, 13, 'one', 'comment', '2014-07-13 11:38:27'),
-(9, 7, '1', '2', '2014-07-13 11:38:27'),
-(10, 10, 'zwei', 'drei', '2014-07-13 11:38:27'),
-(11, 10, 'vier', 'fuenf', '2014-07-13 11:38:27'),
-(12, 10, 'sechs', 'sieben', '2014-07-13 11:38:27'),
-(13, 5, 'ein Test', 'User', '2014-07-13 11:38:27'),
-(14, 0, '20', '41', '2014-07-13 11:38:27'),
-(15, 0, '20', '53', '2014-07-13 11:38:27'),
-(16, 0, 'bla', 'blub', '2014-07-13 11:38:27'),
-(17, 10, '21', '00', '2014-07-13 11:38:27'),
-(18, 10, 'a', 'd', '2014-07-13 11:38:27'),
-(19, 10, 'bc', 'asd', '2014-07-13 11:38:27'),
-(20, 10, 'a', 's', '2014-07-13 11:38:27'),
-(21, 10, 'a', 'd', '2014-07-13 11:38:27'),
-(22, 10, 'posting', 'comment', '2014-07-13 11:38:27'),
-(23, 10, 'next', 'comment', '2014-07-13 11:38:27'),
-(24, 7, '21', '31', '2014-07-13 11:38:27'),
-(25, 7, 'post', 'reload', '2014-07-13 11:38:27'),
-(26, 7, 'test', 'testtt', '2014-07-13 11:38:27'),
-(27, 7, 'd', 'b', '2014-07-13 11:38:27'),
-(28, 7, 'a', 'd', '2014-07-13 11:38:27'),
-(29, 7, 'c', 'y', '2014-07-13 11:38:27'),
-(30, 7, 'das ist ein richtig langer text und ich wollte mal testen ob es hier probleme mit der anzeige gibt oder ob das automatisch von der komponente geregelt wird... na dann schauen wir mal :)', 'das hier ist der autor des textes', '2014-07-13 11:38:27'),
-(31, 7, 'Kommentar mit Timestamp', 'undefined', '2014-07-13 11:38:27'),
-(32, 2, 'Kommentar', 'Noch einer', '2014-07-23 08:35:28'),
-(33, 2, 'noch', 'ein', '2014-07-23 08:35:58'),
-(34, 2, 'bla', 'blabla', '2014-07-23 08:38:02'),
-(35, 9, 'Hallp', 'Kommentar', '2014-07-23 09:44:55'),
-(36, 10, 'Kommentar', 'Neu', '2014-08-06 19:37:19'),
-(37, 4, 'Das ist', 'ein Kommentar', '2014-08-07 09:59:01'),
-(38, 4, 'Noch ein', 'Kommentar', '2014-08-07 10:10:45'),
-(39, 4, 'Noch ein', 'Kommentar', '2014-08-07 10:10:55'),
-(40, 4, 'Noche', 'einer', '2014-08-07 10:12:14'),
-(41, 4, 'asd', 'aaa', '2014-08-07 10:20:13'),
-(42, 4, 'a', 'ss', '2014-08-07 10:21:48'),
-(43, 4, 'bla', 'ble', '2014-08-07 10:22:04'),
-(44, 4, 'komment', 'AE', '2014-08-07 10:27:54'),
-(45, 4, 'komment', 'AE', '2014-08-07 10:28:37'),
-(46, 4, 'BLA', 'BLAAA', '2014-08-07 10:28:44'),
-(47, 4, 'BLA', 'BLAAA', '2014-08-07 10:28:45'),
-(48, 4, 'Noch', 'einer', '2014-08-07 10:34:30'),
-(49, 4, 'test', 't', '2014-08-07 10:35:48'),
-(50, 4, 'a', 's', '2014-08-07 10:42:46'),
-(51, 4, 'as', 'asd', '2014-08-07 10:46:50'),
-(52, 4, 'asdasd', 'asdasd', '2014-08-07 10:47:16'),
-(53, 4, 'asd', 'asdasd', '2014-08-07 10:48:08'),
-(54, 4, 'a', 'aa', '2014-08-07 10:48:28'),
-(55, 4, 'noche', 'einer', '2014-08-07 10:49:48'),
-(56, 4, 'as', 'dd', '2014-08-07 10:50:43'),
-(57, 22, 'bla', 'blub', '2014-08-07 11:16:09'),
-(58, 21, 'a', 's', '2014-08-07 12:38:37'),
-(59, 21, 'd', 'd', '2014-08-07 12:38:39'),
-(60, 21, 'a', 's', '2014-08-07 12:38:41'),
-(61, 21, 'd', 'a', '2014-08-07 12:38:43'),
-(62, 21, 'd', 'a', '2014-08-07 12:38:45');
+(67, 11, 'eins', 'eins', '2014-08-16 20:23:29'),
+(68, 11, 'zwei', 'zwei', '2014-08-16 20:23:40'),
+(69, 10, 'asd', 'asd', '2014-08-27 19:20:25'),
+(70, 10, 'blub', 'bla', '2014-08-27 19:54:40'),
+(71, 10, 'asd', 'asdasd', '2014-08-27 19:58:44'),
+(72, 10, 'asdasd', 'asdasd', '2014-08-27 20:00:00'),
+(73, 10, 'asd', 'd', '2014-09-13 10:53:01');
 
 -- --------------------------------------------------------
 
@@ -417,7 +447,7 @@ CREATE TABLE IF NOT EXISTS `locations` (
   `Likes` int(5) DEFAULT NULL,
   `Adresse` varchar(200) NOT NULL,
   PRIMARY KEY (`Id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=25 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=26 ;
 
 --
 -- Daten für Tabelle `locations`
@@ -440,13 +470,11 @@ INSERT INTO `locations` (`Id`, `Name`, `GeoLocation`, `Oeffnungszeiten`, `Art`, 
 (15, 'schloessle', '(48.403182, 10.02031', '14-16', 1, 0, 'Schloessleweg, Neu-Ulm, Deutschland'),
 (16, 'olga', '(48.4018318, 9.99241', '16-18', 2, 0, 'bla adresse'),
 (17, 'olga', '(51.494149, 9.601675', '20-22', 2, 0, 'eine ADrese'),
-(18, 'olga', '(48.41939, 9.8987899', '22-24', 4, 0, 'eine ADrese'),
-(19, 'joes', '(51.315432, 9.479607', '1-3', 4, 0, 'eine ADrese'),
-(20, 'cinemaxx', '(51.537053, 9.923545', '3-5', 4, 0, 'eine ADrese'),
 (21, 'barfÃ¼ÃŸer neu ulm', '(48.39677, 10.002302', '14-18', 2, 0, 'eine ADrese'),
 (22, 'konzertsaal', '(48.393796, 9.995728', '10-22', 1, 0, 'Silcherstrasse 2, Neu-Ulm, Deutschland'),
 (23, 'bla', '(51.744002, 7.187624', '8-12', 2, 0, 'MÃ¼hlenstraÃŸe 13, Haltern am See, Deutschland'),
-(24, 'bla', '(48.2181674, 9.87372', '8-12', 3, 0, 'B30, 88471 Laupheim, Deutschland');
+(24, 'bla', '(48.2181674, 9.87372', '8-12', 3, 0, 'B30, 88471 Laupheim, Deutschland'),
+(25, 'Joes Garage', '(51.315432, 9.479607', '8-12', 2, 0, 'Friedrich-Ebert-StraÃŸe 60, Kassel, Deutschland');
 
 -- --------------------------------------------------------
 
@@ -459,16 +487,7 @@ CREATE TABLE IF NOT EXISTS `responsibility` (
   `LocationId` int(5) NOT NULL,
   `UserId` int(5) NOT NULL,
   PRIMARY KEY (`Id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=69 ;
-
---
--- Daten für Tabelle `responsibility`
---
-
-INSERT INTO `responsibility` (`Id`, `LocationId`, `UserId`) VALUES
-(66, 2, 49),
-(67, 4, 49),
-(68, 3, 49);
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
@@ -483,7 +502,7 @@ CREATE TABLE IF NOT EXISTS `users` (
   `Role` varchar(20) NOT NULL,
   `Email` varchar(30) NOT NULL,
   PRIMARY KEY (`Id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=50 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
 
 --
 -- Daten für Tabelle `users`
@@ -491,8 +510,7 @@ CREATE TABLE IF NOT EXISTS `users` (
 
 INSERT INTO `users` (`Id`, `Username`, `Password`, `Role`, `Email`) VALUES
 (1, 'admin', 'admin', 'Admin', 'philippstr@gmx.de'),
-(2, 'Peter', 'Klaus', 'Veranstalter', 'philipp.streicher@uni-ulm.de'),
-(49, 'Benutzernameeee', 'Wowww', 'Admin', 'Klausss');
+(2, 'Peter', 'Klaus', 'Veranstalter', 'philipp.streicher@uni-ulm.de');
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

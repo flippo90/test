@@ -1,0 +1,61 @@
+<ul class="nav nav-tabs">
+    <li><a href="#">Home</a></li>
+    <li class="active"><a href="#/adminPages/createEvent">Events verwalten</a></li>
+    <li><a href="#/adminPages/createLocation" ng-show="userIsAdmin()">Locations verwalten</a></li>
+    <li><a href="#/adminPages/manageUsers" ng-show="userIsAdmin()">User verwalten</a></li>
+</ul>
+<div class="adminManageUserPage">
+    <div class="container">
+        <details>
+            <summary>Event hinzufügen</summary>
+            <form name="createLocation" class="form-createLocation" role="form">
+                <input name="name" type="text" ng-model="event.name" class="form-control" autofocus placeholder="Name des Events">
+                <textarea name="description" type="text" class="form-control" ng-model="event.description" rows = "3" placeholder="Beschreibung des Events"></textarea>
+                <textarea name="specials" type="text" class="form-control" ng-model="event.specials" rows = "3" placeholder="Specials des Events"></textarea>
+                <select name="type" ng-model="event.location" ng-options="location.name for location in locations" class="form-control" ></select>
+                <input name="openingTime" type="text" placeholder="Öffnungszeit" ng-model="event.time" class="form-control">
+                <input name="date" type="date" ng-model="event.date" class="form-control">
+                <select name="turnus" ng-model="event.repeat" ng-options="t.name for t in turnus" class="form-control" ></select>
+                <button id="createLocationButton" ng-click="onCreateLocation()" class="btn btn-lg btn-primary btn-block">Location erstellen</button>
+            </form>
+        </details>
+
+        <details>
+            <summary>Event löschen</summary>
+            <strong>Filter:</strong> </string><input class="mySeachInput" type="text" ng-model="filterOptions.filterText" />
+            <div class="eventGridStyle" ng-grid="editEventGridOptions"></div>
+            <button ng-click="removeEvent()" class="btn btn-lg btn-primary btn-block" ng-show="itemSelected()"><i class="glyphicon-minus-sign"></i> Löschen</button>
+        </details>
+
+        <details>
+            <summary>Event bearbeiten</summary>
+            <strong>Filter:</strong> </string><input class="mySeachInput" type="text" ng-model="deleteFilterOptions.filterText" />
+            <div class="eventGridStyle" ng-grid="editEventGridOptions"></div>
+            <form class="form-UserTable margin-bottom-5">
+                <div ng-repeat="e in eventToUpdate">
+                    <div class="input-group" style="width: 100%">
+                        <label class="input-group-addon">Event Name</label>
+                        <input type="text" ng-model="e.name" autofocus placeholder="Event Name">
+                    </div>
+                    <div class="input-group">
+                        <label class="input-group-addon">Datum</label>
+                        <input type="date" ng-model="e.date" >
+                    </div>
+                    <div class="input-group">
+                        <label class="input-group-addon">Uhrzeit</label>
+                        <input type="text" ng-model="e.time" placeholder="Uhrzeit">
+                    </div>
+                    <div class="input-group">
+                        <label class="input-group-addon">Specials</label>
+                        <input type="text" ng-model="e.specials" placeholder="Specials">
+                    </div>
+                    <div class="input-group">
+                        <label class="input-group-addon">Beschreibung</label>
+                        <input type="text" ng-model="e.description" placeholder="Beschreibung">
+                    </div>
+                    <button ng-click="editEvent()" class="btn btn-lg btn-primary btn-block"><i class="glyphicon-minus-sign"></i> Speichern</button>
+                </div>
+            </form>
+        </details>
+    </div>
+</div>
