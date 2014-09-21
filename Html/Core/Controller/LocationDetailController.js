@@ -1,3 +1,7 @@
+/*
+ this is the controller for the location details.
+ */
+
 app.controller('locationDetailController', ['$rootScope', '$scope', '$location', '$routeParams', '$route', 'DetailService', 'filterService',
     function ($rootScope, $scope, $location, $routeParams, $route, detailService, filterService) {
         $scope.detailService = detailService;

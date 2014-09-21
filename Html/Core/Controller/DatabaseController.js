@@ -1,8 +1,28 @@
+/*
+ This controller holds the data shown in the map and the table
+ */
+
 app.controller('databaseController', ['$rootScope', '$scope', '$filter', '$q', 'filterChangedService', 'httpService', 'databaseLocationService', 'filterService',
     function ($rootScope, $scope,  $filter, $q, filterChangedService, httpService, databaseLocationService, filterService) {
 
         $scope.filterChangedService = filterChangedService;
         $scope.filterService = filterService;
+
+        $scope.mapLocations = {
+            bars: [],
+            restaurants: [],
+            clubs: [],
+            others: []
+        };
+
+        $scope.$on('destroy', function(){
+            filterChangedService.filterBars = false;
+            filterChangedService.filterClubs = false;
+            filterChangedService.filterOther = false;
+            filterChangedService.filterRestaurants = false;
+
+            $scope.initDataObjects();
+        });
 
         $scope.allLocationsInMaxRadius = {
             bars: [],
@@ -16,14 +36,14 @@ app.controller('databaseController', ['$rootScope', '$scope', '$filter', '$q', '
         $scope.getData = function(){
             databaseLocationService.getData()
                 .then(function(promise){
-                    $scope.initDataObjects();
+                    console.log($scope.allLocationsInMaxRadius);
                     $scope.allLocationsInMaxRadius = databaseLocationService.createLocationsFromDbData(promise.data);
-                    filterService.mapLocations = filterService.applyFilterToAllLocations($scope.allLocationsInMaxRadius, filterService.mapLocations);
+                    $scope.mapLocations = filterService.applyFilterToAllLocations($scope.allLocationsInMaxRadius, $scope.mapLocations);
                 })
                 .then(function(){
                     databaseLocationService.getEventData()
                         .then(function(promise){
-                            databaseLocationService.createEvents(promise.data, filterService.mapLocations);
+                            databaseLocationService.createEvents(promise.data, $scope.mapLocations);
                             databaseLocationService.createEvents(promise.data, $scope.allLocationsInMaxRadius);
                         })
                         .then(function(){
@@ -34,7 +54,7 @@ app.controller('databaseController', ['$rootScope', '$scope', '$filter', '$q', '
         };
 
         $scope.refreshDataList = function(){
-            $scope.gridList = databaseLocationService.refreshGridDataList(filterService.mapLocations);
+            $scope.gridList = databaseLocationService.refreshGridDataList($scope.mapLocations);
         };
 
         $scope.filterTableData = function(){
@@ -47,9 +67,9 @@ app.controller('databaseController', ['$rootScope', '$scope', '$filter', '$q', '
             $scope.allLocationsInMaxRadius.restaurants.length = 0;
             $scope.allLocationsInMaxRadius.others.length = 0;
 
-            filterService.mapLocations.bars.length = 0;
-            filterService.mapLocations.clubs.length = 0;
-            filterService.mapLocations.restaurants.length = 0;
-            filterService.mapLocations.others.length = 0;
-        }
+            $scope.mapLocations.bars.length = 0;
+            $scope.mapLocations.clubs.length = 0;
+            $scope.mapLocations.restaurants.length = 0;
+            $scope.mapLocations.others.length = 0;
+        };
     }]);

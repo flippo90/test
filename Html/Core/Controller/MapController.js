@@ -1,3 +1,12 @@
+/*
+ This controller is responsible for the map.
+
+ it requests the user location, holds the options for the map, stores the map options in the cookies
+ and will be called after the user interactions with the map
+
+ special: the marker of the map will not be destroyed automatically, so the controller has to remove
+ all locations manually before he gets destroyed
+ */
 app.controller('mapController', ['$rootScope', '$scope', '$location', '$filter', 'filterChangedService', 'DetailService', '$cookieStore', 'filterService',
 function ($rootScope, $scope, $location, $filter, filterChangedService, detailService, $cookieStore, filterService) {
     $scope.detailService = detailService;

@@ -59,7 +59,11 @@
     <script src="Common/HelpFiles/createTestData.js"></script>
 
 </head>
-<body class="filterPage">
+<body class="filterPage" ng-controller="logoutController">
+    <div class="right" ng-show="checkUser()">
+        <label><span class="glyphicon glyphicon-user"></span>Hallo {{getUserName()}}</label>
+        <a class="btn" role="button" href="#" ng-click="logout()"><span class="glyphicon glyphicon-log-out"></span>Logout</a>
+    </div>
     <div ng-controller="logoutController" ng-view></div>
 </body>
 </html>

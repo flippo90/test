@@ -1,3 +1,7 @@
+/*
+ this controller is responsible for the login
+ */
+
 app.controller('loginController', function($scope, AuthenticationService){
     $scope.credentials = {
         username: "",

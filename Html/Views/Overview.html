@@ -6,12 +6,6 @@
                 <li><a href="#/adminPages/createEvent">Events verwalten</a></li>
                 <li ng-hide="!userIsAdmin()"><a href="#/adminPages/createLocation">Locations verwalten</a></li>
                 <li ng-hide="!userIsAdmin()"><a href="#/adminPages/manageUsers">User verwalten</a></li>
-                <li>
-                    <div class="right">
-                        <label><span class="glyphicon glyphicon-user"></span>Hallo {{getUserName()}}</label>
-                        <a class="btn" role="button" href="#" ng-click="logout()"><span class="glyphicon glyphicon-log-out"></span>Logout</a>
-                    </div>
-                </li>
             </ul>
 
         </div>
@@ -37,10 +31,10 @@
             <div ng-controller="mapController" ng-hide="checked">
                 <google-map center=map.center zoom="map.zoom" draggable="true" fit="true" control="map.control">
                    <marker coords="map.userCoords"></marker>
-                   <marker click="markerClicked(bar)" icon="bar.locEvents | byDate:filterChangedService.filterDate | byTime:filterChangedService.filterTime:filterChangedService.filterByTime | getIconFromFilterResultBar" options="bar.options" coords="bar.coords" ng-repeat="bar in filterService.mapLocations.bars"></marker>
-                   <marker click="markerClicked(club)" icon="club.locEvents | byDate:filterChangedService.filterDate | byTime:filterChangedService.filterTime:filterChangedService.filterByTime | getIconFromFilterResultClub" options="club.options" coords="club.coords" ng-repeat="club in filterService.mapLocations.clubs"></marker>
-                   <marker click="markerClicked(other)" icon="other.locEvents | byDate:filterChangedService.filterDate | byTime:filterChangedService.filterTime:filterChangedService.filterByTime | getIconFromFilterResultRestaurant" options="other.options" coords="other.coords" ng-repeat="other in filterService.mapLocations.others"></marker>
-                   <marker click="markerClicked(restaurant)" icon="restaurant.locEvents | byDate:filterChangedService.filterDate | byTime:filterChangedService.filterTime: filterChangedService.filterByTime | getIconFromFilterResultOther" options="restaurant.options" coords="restaurant.coords" ng-repeat="restaurant in filterService.mapLocations.restaurants"></marker>
+                   <marker click="markerClicked(bar)" icon="bar.locEvents | byDate:filterChangedService.filterDate | byTime:filterChangedService.filterTime:filterChangedService.filterByTime | getIconFromFilterResultBar" options="bar.options" coords="bar.coords" ng-repeat="bar in mapLocations.bars"></marker>
+                   <marker click="markerClicked(club)" icon="club.locEvents | byDate:filterChangedService.filterDate | byTime:filterChangedService.filterTime:filterChangedService.filterByTime | getIconFromFilterResultClub" options="club.options" coords="club.coords" ng-repeat="club in mapLocations.clubs"></marker>
+                   <marker click="markerClicked(other)" icon="other.locEvents | byDate:filterChangedService.filterDate | byTime:filterChangedService.filterTime:filterChangedService.filterByTime | getIconFromFilterResultRestaurant" options="other.options" coords="other.coords" ng-repeat="other in mapLocations.others"></marker>
+                   <marker click="markerClicked(restaurant)" icon="restaurant.locEvents | byDate:filterChangedService.filterDate | byTime:filterChangedService.filterTime: filterChangedService.filterByTime | getIconFromFilterResultOther" options="restaurant.options" coords="restaurant.coords" ng-repeat="restaurant in mapLocations.restaurants"></marker>
                 </google-map>
             </div>
 

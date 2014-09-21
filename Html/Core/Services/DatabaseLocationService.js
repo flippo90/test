@@ -185,12 +185,12 @@ app.service('databaseLocationService', function ($http, httpService, filterChang
 
     this.updateLocation = function(location){
         var params = {
-            'id': location.id,
+            'id': location.locationId,
             'name': location.name,
-            'openingTime': location.openingTime
+            'openingTime': location.openingHours
         };
 
-        return httpService.post('updateLocation.php', params, function(data){console.log(data + 'updated location');});
+        return httpService.angularPost('updateLocation.php', params);
     };
 
     this.deleteLocation = function(location){

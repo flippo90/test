@@ -1,12 +1,8 @@
 
 app.controller('createLocationController', function($scope, $http, httpService, databaseLocationService, $modal){
 
-
-    /*$scope.result = '';
-    $scope.details = '';
-    $scope.options = {};*/
-
     $scope.savedLocation = "";
+    $scope.locationList = [];
 
     $scope.location = {
         name: "",
@@ -15,21 +11,23 @@ app.controller('createLocationController', function($scope, $http, httpService, 
         coords: {
             lat : 0,
             long: 0
-        }//,
-        //type: $scope.locationTypes[0]
+        }
+    };
+
+    $scope.setLocations = function(){
+        if (angular.isDefined(databaseLocationService.getAllLocations())){
+            $scope.locationList = databaseLocationService.refreshGridDataList(databaseLocationService.getAllLocations());
+        }
     };
 
     $scope.locations = function(){
-        if (angular.isDefined(databaseLocationService.getAllLocations())){
-            return databaseLocationService.refreshGridDataList(databaseLocationService.getAllLocations());;
-        }
+        return $scope.locationList;
     };
 
     $scope.deleteLocation = function(location){
         databaseLocationService.deleteLocation(location)
-            .then(function(data){
-                console.log(data);
-                //remove location from list
+            .success(function(data){
+                $scope.locationList.splice($scope.locationList.indexOf(location), 1);
             });
     };
 
@@ -54,6 +52,8 @@ app.controller('createLocationController', function($scope, $http, httpService, 
             //console.log('Modal dismissed at: ' + new Date());
         });
     };
+
+    $scope.setLocations();
 });
 
 var ModalInstanceCtrl = function ($scope, $modalInstance, httpService, databaseLocationService, location, edit) {
@@ -79,8 +79,10 @@ var ModalInstanceCtrl = function ($scope, $modalInstance, httpService, databaseL
             databaseLocationService.createLocation($scope.location)
                 .then($modalInstance.close());
         } else{
-            databaseLocationService.updateLocation($scope.location)
-                .then($modalInstance.close());
+            databaseLocationService.updateLocation($scope.location).success(function(){
+                console.log($scope.location);
+                $modalInstance.close();
+            });
         }
     };
 

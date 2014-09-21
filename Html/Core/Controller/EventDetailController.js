@@ -1,3 +1,6 @@
+/*
+ * The controller for the event detail page
+ */
 app.controller('eventDetailController', ['$rootScope', '$scope', '$route', '$location',  'DetailService',
     function ($rootScope, $scope, $route, $location, detailService) {
         $scope.detailService = detailService;

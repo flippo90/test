@@ -6,6 +6,9 @@
 </ul>
 
 <div>
+    <div class="right" style="padding: 5px">
+        <button ng-click="open(null, false)" class="btn btn-primary">Location erstellen</button>
+    </div>
     <table class="table table-striped">
         <tr>
             <th>Location Name</th>
@@ -20,6 +23,4 @@
             <td ng-click="deleteLocation(location)"><span class="glyphicon glyphicon-trash"></span></td>
         </tr>
     </table>
-    <button ng-click="open(null, false)" class="btn btn-lg btn-primary btn-block">Location erstellen</button>
-
 </div>

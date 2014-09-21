@@ -1,11 +1,4 @@
-app.service('filterService', function ($filter, filterChangedService, databaseLocationService) {
-    this.mapLocations = {
-        bars: [],
-        restaurants: [],
-        clubs: [],
-        others: []
-    };
-
+app.service('filterService', function ($filter, filterChangedService) {
     this.byDistance = function(filterList, centerCoords, radius){
         return $filter('byDistance')(filterList, centerCoords, radius);
     };
@@ -37,7 +30,6 @@ app.service('filterService', function ($filter, filterChangedService, databaseLo
         result.clubs.length = 0;
 
         result.bars = this.applyAllFiltersTo(locations.bars, filterChangedService.filterBars);
-
         result.restaurants = this.applyAllFiltersTo(locations.restaurants, filterChangedService.filterRestaurants);
         result.clubs = this.applyAllFiltersTo(locations.clubs, filterChangedService.filterClubs);
         result.others = this.applyAllFiltersTo(locations.others, filterChangedService.filterOther);
@@ -46,6 +38,7 @@ app.service('filterService', function ($filter, filterChangedService, databaseLo
 
     this.applyAllFiltersTo = function(list, visible){
         var resultList = this.resetVisibleAttribute(list, visible);
+
         if (resultList.length == 0){
             return resultList;
         }
@@ -55,6 +48,7 @@ app.service('filterService', function ($filter, filterChangedService, databaseLo
         } else{
             resultList = this.byDistance(list, filterChangedService.centerCoords, filterChangedService.filterRadius);
         }
+
 
         return resultList;
     };
@@ -72,14 +66,6 @@ app.service('filterService', function ($filter, filterChangedService, databaseLo
         }
         return result;
     };
-
-    this.removeMapLocations = function(){
-        this.mapLocations.bars.length = 0;
-        this.mapLocations.restaurants.length = 0;
-        this.mapLocations.clubs.length = 0;
-        this.mapLocations.others.length = 0;
-    }
-
 });
 
 

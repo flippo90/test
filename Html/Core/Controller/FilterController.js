@@ -1,3 +1,10 @@
+/*
+ This controller is responsible for the filter
+
+ if any filter changes, the controller is responsible to call the functions that update
+ the data.
+ */
+
 app.controller('filterController', function($scope, filterChangedService, $filter, filterService, helperService){
     $scope.result = '';
     $scope.details = '';
@@ -11,28 +18,28 @@ app.controller('filterController', function($scope, filterChangedService, $filte
     });
 
     $scope.$watch('filterChangedService.filterClubs', function(){
-        filterService.mapLocations.clubs = filterService.applyAllFiltersTo($scope.allLocationsInMaxRadius.clubs, filterChangedService.filterClubs);
+        $scope.mapLocations.clubs = filterService.applyAllFiltersTo($scope.allLocationsInMaxRadius.clubs, filterChangedService.filterClubs);
         $scope.refreshDataList();
     });
 
     $scope.$watch('filterChangedService.filterBars', function(){
-        filterService.mapLocations.bars = filterService.applyAllFiltersTo($scope.allLocationsInMaxRadius.bars, filterChangedService.filterBars);
+        $scope.mapLocations.bars = filterService.applyAllFiltersTo($scope.allLocationsInMaxRadius.bars, filterChangedService.filterBars);
         $scope.refreshDataList();
     });
 
     $scope.$watch('filterChangedService.filterRestaurants', function(){
-        filterService.mapLocations.restaurants = filterService.applyAllFiltersTo($scope.allLocationsInMaxRadius.restaurants, filterChangedService.filterRestaurants);
+        $scope.mapLocations.restaurants = filterService.applyAllFiltersTo($scope.allLocationsInMaxRadius.restaurants, filterChangedService.filterRestaurants);
         $scope.refreshDataList();
     });
 
     $scope.$watch('filterChangedService.filterOther', function(){
-        filterService.mapLocations.others = filterService.applyAllFiltersTo($scope.allLocationsInMaxRadius.others, filterChangedService.filterOther);
+        $scope.mapLocations.others = filterService.applyAllFiltersTo($scope.allLocationsInMaxRadius.others, filterChangedService.filterOther);
         $scope.refreshDataList();
     });
 
     $scope.$watch('filterChangedService.filterRadius', function() {
         if (filterChangedService.locationFilter == "byCurrentLocation"){
-            filterService.mapLocations = filterService.applyFilterToAllLocations($scope.allLocationsInMaxRadius, filterService.mapLocations);
+            $scope.mapLocations = filterService.applyFilterToAllLocations($scope.allLocationsInMaxRadius, $scope.mapLocations);
             $scope.refreshDataList();
             $scope.filterTableData();
         }
