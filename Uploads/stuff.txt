@@ -1,0 +1,116 @@
+
+dws invest gmbh
+in frankfurt
+invest konto nr: 299A553318001
+tel 069/719093280
+david: an den gebwerbewiesen 18e, 67374 hannhofen
+von wolanden str 16 in römerberg
+	geb: 17.09.1985
+
+
+
+
+http://pizzahome.dyndns.org
+       pizzabackup.dyndns.org
+PhilippUNI
+S0ftWare
+
+http://blog.rapskernoel.info/spinat-bandnudeln-mit-lachs/
+http://www.chefkoch.de/rezepte/230531094562952/Schweinefilets-im-Schinkenmantel-an-Cognacsahne.html sehr lecker
+http://www.chefkoch.de/rezepte/1596961266934579/Putengeschnetzeltes-mit-Karotten-Orangen-Sosse.html sehr lecker
+http://www.chefkoch.de/rezepte/431091134310048/Gulasch-nach-Oma-Magda.html
+
+http://www.chefkoch.de/rezepte/460771139185700/Schnelles-Thai-Curry-mit-Huhn-Paprika-und-feiner-Erdnussnote.html
+
+
+7799p
+protected1
+
+arvato gmbh
+warenannahme 6
+dieselstr 70
+33442 herzebrog-clarholz
+
+http://www.webtecgdl.com/pi/studyHowApplying.php
+TEC Guadalajara 
+
+algorithmen und datenstrukturen -> Data structures 
+Anwendungsprojekt -> mobile application development projects
+Informationssysteme -> adavanced database systems
+scherpunkt?? -> software design and architecture
+
+Dear Sir or Maddam, 
+
+I hereby wish to state my interest for a spot in the Baden-Würtemberg program and therefore, I would like explain to you why 
+I think your program would be a perfect opportunity for me.
+
+My long term goal is to take on a leading position in an internationally operating company. On my way to 
+achie this goal, I have already taken some important steps. After graduating from high school which 
+is specialiced on business management and information systems I started an apprenticeship as an IT specialist. 
+I completed my apprenticeship successfully ahead of scedule followed by a half-year professional activity as a Software-
+Engineer. I continued 
+my way with the enrollment in Software-Engineering at the University of Ulm. It would be an honor 
+if I could continue my way at SDSU.
+
+Since I was a teenager I feel like living in another country for a longer period and getting to know different cultures. 
+Because I have a family with two younger sisters and two older brothers, the money often restriced our wishes. 
+Also the school's I have visited didn't offer exchange programs. I had the first international working experience during
+my professional time. My company gave me the chance to complete some projects by working
+together with the customer in different european countries. This experience made myself very curios about getting to know 
+other cultures and to work within an international context.
+ Now I earn my own money, have enough time and so I want to 
+fulfil myself a big dream.
+
+While I was talking to a workmate and telling him about my future plan, to study in North-America, he
+recommended the SDSU. During my research I fell in love with San Diego and the university because it offers courses like 
+'Software Engineering' and 'Object-Oriented Programming and Design' in which I want to specialize in. Because of my
+apprenticeship I already know in which sector of the huge IT-Branch I want to work and this university offers 
+perfekt subjects for my future plans. Furthermore working and studying in another culture will help me to extend my 
+intercultural knowledge as well as to improve my language skills. This experience abroad will contribute to achieve 
+my future objective, a leading position in an internationally operating company.
+
+Beside the educational quality of the SDSU, I think living in 'America's finest City' is very comfortable. For example the 
+sun shines around 330 days a year and it offers lots of outdoor pursuits, in which I'm really interested. If you are 
+tired of visiting cities like Los Angeles or Las Vegas, impressive nature like the Grand Canyon, deserts or moutains are not
+ too far away.
+
+I would be glad to recieve a new experience and a fantastic new story for my life.
+
+database controller
+/*
+This controller holds the data shown in the map and the table
+ */
+
+eventdetailcontroller
+/*
+ * The controller for the event detail page
+ */
+
+filtercontroller
+/*
+ This controller is responsible for the filter
+
+ if any filter changes, the controller is responsible to call the functions that update
+ the data.
+ */
+
+locationdetailcontroller
+/*
+this is the controller for the location details.
+ */
+
+logincontroller
+/*
+this controller is responsible for the login
+ */
+
+mapcontroller
+/*
+ This controller is responsible for the map.
+
+ it requests the user location, holds the options for the map, stores the map options in the cookies
+ and will be called after the user interactions with the map
+
+ special: the marker of the map will not be destroyed automatically, so the controller has to remove
+ all locations manually before he gets destroyed
+ */

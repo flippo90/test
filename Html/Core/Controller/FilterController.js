@@ -10,8 +10,6 @@ app.controller('filterController', function($scope, filterChangedService, $filte
     $scope.details = '';
     $scope.options = { types: '(cities)'};
 
-    filterChangedService.filterTime = helperService.getCurrentTime();
-    filterChangedService.filterDate = helperService.getCurrentDate();
     $scope.$watch('details', function(){
         if (!angular.isUndefined($scope.details))
             filterChangedService.filterCity = $scope.details.formatted_address;
@@ -73,4 +71,15 @@ app.controller('filterController', function($scope, filterChangedService, $filte
     $scope.$watch('filterChangedService.filterByTime', function(){
         $scope.filterTableData();
     });
+
+    $scope.setCurrentDate = function(){
+        filterChangedService.filterDate = helperService.getCurrentDate();
+    };
+
+    $scope.setCurrentTime = function(){
+        filterChangedService.filterTime = helperService.getCurrentTime();
+    };
+
+    $scope.setCurrentDate();
+    $scope.setCurrentTime();
 });

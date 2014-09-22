@@ -77,6 +77,14 @@ app.controller('sectionController', ['$scope', '$cookieStore', 'AuthenticationSe
         }
     };
 
+    $scope.sectionstyle = function(){
+        if ($scope.checkUser()){
+            return 'login'
+        } else{
+            return 'no-login'
+        }
+    };
+
     $scope.activateSuche = function(){
         if ( $scope.sections.filterSection.css == 'active') {
             $scope.sections.filterSection.css = "";

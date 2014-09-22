@@ -43,7 +43,6 @@ body {
 
 #section-suche {
     position: absolute;
-    top: 70px;
     left: -100%;
     background: #fff;
     padding: 10px;
@@ -159,6 +158,23 @@ body {
     padding: 6px 0 0 10px;
     display: inline-block;
 }
+
+.pac-container {z-index: 2000}
+
+.login{
+    top:104px;
+}
+
+.no-login{
+    top:44px;
+}
+
+.km {
+    float: right;
+    margin-top: -20px;
+}
+
+#slider {width: 75%;margin-left: 10px;}
 
 .angular-google-map-container { height: 400px; }
 
@@ -436,7 +452,6 @@ a {
 
 .comment-time{
     font-size: 10px;
-    position: absolute;
     top: 1px;
     right: 10px;
     color: #428bca;

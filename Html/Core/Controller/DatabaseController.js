@@ -36,7 +36,6 @@ app.controller('databaseController', ['$rootScope', '$scope', '$filter', '$q', '
         $scope.getData = function(){
             databaseLocationService.getData()
                 .then(function(promise){
-                    console.log($scope.allLocationsInMaxRadius);
                     $scope.allLocationsInMaxRadius = databaseLocationService.createLocationsFromDbData(promise.data);
                     $scope.mapLocations = filterService.applyFilterToAllLocations($scope.allLocationsInMaxRadius, $scope.mapLocations);
                 })

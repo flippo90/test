@@ -174,13 +174,13 @@ app.service('databaseLocationService', function ($http, httpService, filterChang
     this.createLocation = function(location){
         var params = {
             'locationName': location.name,
-            'geoLocation': location.coords,
+            'geoLocation': location.geoLocation,
             'type': location.type.id,
             'openingHours': location.openingTime,
             'address': location.address
         };
 
-        return httpService.post('createLocation.php', params, function(data){console.log(data + 'created location');});
+        return httpService.angularPost('createLocation.php', params);
     };
 
     this.updateLocation = function(location){

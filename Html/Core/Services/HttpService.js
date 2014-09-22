@@ -27,6 +27,27 @@ app.service('httpService', function ($http) {
         });
     };
 
+    this.postEncType = function(filename, params, successFunction, encType){
+        var dataStr = "";
+        var firstEntry = true;
+        Object.keys(params).forEach(function (key) {
+            if (firstEntry){
+                dataStr = "" + key + "=" + params[key];
+            }else {
+                dataStr = dataStr + "&" + key + "=" + params[key];
+            }
+            firstEntry = false;
+        });
+
+        $.ajax({
+            type: "POST",
+            url: "Core/Php/" + filename,
+            data: dataStr,
+            success: successFunction(),
+            enctype: encType
+        });
+    };
+
     this.angularPost = function(filename, params){
         var dataStr = "";
         var firstEntry = true;
@@ -41,6 +62,23 @@ app.service('httpService', function ($http) {
 
         $http.defaults.headers.post["Content-Type"] = "application/x-www-form-urlencoded";
         return $http({method :'POST', url: 'Core/Php/' + filename, data: dataStr});
+
+    };
+
+    this.angularPostEncType = function(filename, params, encType){
+        var dataStr = "";
+        var firstEntry = true;
+        Object.keys(params).forEach(function (key) {
+            if (firstEntry){
+                dataStr = "" + key + "=" + params[key];
+            }else {
+                dataStr = dataStr + "&" + key + "=" + params[key];
+            }
+            firstEntry = false;
+        });
+
+        $http.defaults.headers.post["Content-Type"] = "application/x-www-form-urlencoded";
+        return $http({method :'POST', url: 'Core/Php/' + filename, data: dataStr, enctype: encType});
 
     };
 

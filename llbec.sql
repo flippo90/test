@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Erstellungszeit: 21. Sep 2014 um 11:20
+-- Erstellungszeit: 22. Sep 2014 um 18:26
 -- Server Version: 5.6.16
 -- PHP-Version: 5.5.9
 
@@ -54,25 +54,27 @@ CREATE TABLE IF NOT EXISTS `eventkommentare` (
   `Writer` varchar(50) NOT NULL,
   `EventId` int(11) NOT NULL,
   `Timestamp` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `Filename` varchar(100) DEFAULT NULL,
   PRIMARY KEY (`Id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=53 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=54 ;
 
 --
 -- Daten für Tabelle `eventkommentare`
 --
 
-INSERT INTO `eventkommentare` (`Id`, `Text`, `Writer`, `EventId`, `Timestamp`) VALUES
-(38, 'eins', 'eins', 326, '2014-08-16 20:21:30'),
-(39, 'zwei', 'zwei', 331, '2014-08-16 20:22:20'),
-(44, 'drei', 'drei', 331, '2014-08-16 20:49:44'),
-(45, 'vier', 'vier', 331, '2014-08-16 20:51:59'),
-(46, 'sieben', 'acht', 331, '2014-08-16 20:52:10'),
-(47, 'zwei', 'zwei', 326, '2014-08-16 20:52:50'),
-(48, 'drei', 'drei', 326, '2014-08-16 20:52:54'),
-(49, 'vier', 'fuenf', 326, '2014-08-16 20:53:00'),
-(50, '', '', 0, '2014-08-27 20:04:42'),
-(51, '', '', 0, '2014-08-27 20:07:49'),
-(52, 'd', 'ddd', 326, '2014-09-13 10:53:07');
+INSERT INTO `eventkommentare` (`Id`, `Text`, `Writer`, `EventId`, `Timestamp`, `Filename`) VALUES
+(38, 'eins', 'eins', 326, '2014-08-16 20:21:30', NULL),
+(39, 'zwei', 'zwei', 331, '2014-08-16 20:22:20', NULL),
+(44, 'drei', 'drei', 331, '2014-08-16 20:49:44', NULL),
+(45, 'vier', 'vier', 331, '2014-08-16 20:51:59', NULL),
+(46, 'sieben', 'acht', 331, '2014-08-16 20:52:10', NULL),
+(47, 'zwei', 'zwei', 326, '2014-08-16 20:52:50', NULL),
+(48, 'drei', 'drei', 326, '2014-08-16 20:52:54', NULL),
+(49, 'vier', 'fuenf', 326, '2014-08-16 20:53:00', NULL),
+(50, '', '', 0, '2014-08-27 20:04:42', NULL),
+(51, '', '', 0, '2014-08-27 20:07:49', NULL),
+(52, 'd', 'ddd', 326, '2014-09-13 10:53:07', NULL),
+(53, 'blab', 'blasd', 380, '2014-09-22 14:24:42', 'Circle_Blue.png');
 
 -- --------------------------------------------------------
 
@@ -91,7 +93,7 @@ CREATE TABLE IF NOT EXISTS `events` (
   `Location` int(5) NOT NULL,
   `Likes` int(5) NOT NULL,
   PRIMARY KEY (`Id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=358 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=394 ;
 
 --
 -- Daten für Tabelle `events`
@@ -402,7 +404,24 @@ INSERT INTO `events` (`Id`, `Name`, `Description`, `Specials`, `Date`, `Uhrzeit`
 (354, 'bla', '', 'bla', '2013-08-17', '22-14', 0, 23, 0),
 (355, 'bla', '', 'bla', '2014-08-17', '14-15', 0, 24, 0),
 (356, 'Joes Garage', '', 'Joes Garage', '2014-08-17', '20-10', 0, 25, 0),
-(357, 'barfÃ¼ÃŸer neu ulm', '', 'barfÃ¼ÃŸer neu ulm', '2014-08-17', '23-10', 0, 21, 0);
+(376, 'theatro', '', 'theatro', '2013-09-21', '14-24', 0, 5, 0),
+(377, 'zur forelle', '', 'zur forelle', '2013-09-21', '13-20', 0, 4, 0),
+(378, 'tortuga', '', 'tortuga', '2013-09-21', '3-1', 0, 7, 0),
+(379, 'myers', '', 'myers', '2013-09-21', '1-13', 0, 6, 0),
+(380, 'Barfuesserssssss', '', 'Barfuesserssssss', '2014-09-21', '11-19', 0, 2, 0),
+(381, 'capos', '', 'capos', '2013-09-21', '10-13', 0, 3, 0),
+(382, 'Theater', '', 'Theater', '2013-09-21', '2-22', 0, 8, 0),
+(383, 'mÃ¼nster', '', 'mÃ¼nster', '2013-09-21', '1-15', 0, 9, 0),
+(384, 'choclet', '', 'choclet', '2013-09-21', '21-6', 0, 10, 0),
+(385, 'citrus', '', 'citrus', '2013-09-21', '7-16', 0, 11, 0),
+(386, 'wiley', '', 'wiley', '2013-09-21', '20-12', 0, 14, 0),
+(387, 'schloessle', '', 'schloessle', '2013-09-21', '17-15', 0, 15, 0),
+(388, 'olga', '', 'olga', '2013-09-21', '10-1', 0, 16, 0),
+(389, 'olga', '', 'olga', '2013-09-21', '17-11', 0, 17, 0),
+(390, 'konzertsaal', '', 'konzertsaal', '2014-09-21', '23-7', 0, 22, 0),
+(391, 'bla', '', 'bla', '2013-09-21', '7-23', 0, 23, 0),
+(392, 'barfÃ¼ÃŸer neu ulm', '', 'barfÃ¼ÃŸer neu ulm', '2013-09-21', '6-10', 0, 21, 0),
+(393, 'Joes Garage', '', 'Joes Garage', '2014-09-21', '4-9', 0, 25, 0);
 
 -- --------------------------------------------------------
 
@@ -416,21 +435,35 @@ CREATE TABLE IF NOT EXISTS `locationkommentare` (
   `Text` varchar(200) NOT NULL,
   `Writer` varchar(50) NOT NULL,
   `Timestamp` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `Filename` varchar(100) DEFAULT NULL,
   PRIMARY KEY (`Id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=74 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=97 ;
 
 --
 -- Daten für Tabelle `locationkommentare`
 --
 
-INSERT INTO `locationkommentare` (`Id`, `Location`, `Text`, `Writer`, `Timestamp`) VALUES
-(67, 11, 'eins', 'eins', '2014-08-16 20:23:29'),
-(68, 11, 'zwei', 'zwei', '2014-08-16 20:23:40'),
-(69, 10, 'asd', 'asd', '2014-08-27 19:20:25'),
-(70, 10, 'blub', 'bla', '2014-08-27 19:54:40'),
-(71, 10, 'asd', 'asdasd', '2014-08-27 19:58:44'),
-(72, 10, 'asdasd', 'asdasd', '2014-08-27 20:00:00'),
-(73, 10, 'asd', 'd', '2014-09-13 10:53:01');
+INSERT INTO `locationkommentare` (`Id`, `Location`, `Text`, `Writer`, `Timestamp`, `Filename`) VALUES
+(67, 11, 'eins', 'eins', '2014-08-16 20:23:29', NULL),
+(68, 11, 'zwei', 'zwei', '2014-08-16 20:23:40', NULL),
+(69, 10, 'asd', 'asd', '2014-08-27 19:20:25', NULL),
+(70, 10, 'blub', 'bla', '2014-08-27 19:54:40', NULL),
+(71, 10, 'asd', 'asdasd', '2014-08-27 19:58:44', NULL),
+(72, 10, 'asdasd', 'asdasd', '2014-08-27 20:00:00', NULL),
+(73, 10, 'asd', 'd', '2014-09-13 10:53:01', NULL),
+(74, 10, 'undefined', 'undefined', '2014-09-21 17:50:12', NULL),
+(77, 10, 'hallo', 'klaus', '2014-09-21 20:25:10', ''),
+(83, 0, '', '', '2014-09-22 10:51:28', ''),
+(84, 10, 'sdad', 'ddd', '2014-09-22 10:59:56', ''),
+(85, 10, 'dsdd', 'asdddddddddd', '2014-09-22 11:07:21', ''),
+(86, 10, 'ddd', 'd', '2014-09-22 11:14:53', ''),
+(87, 10, 'asdd', 'dd', '2014-09-22 11:18:11', ''),
+(91, 9, 'Kommentar', 'Philipp', '2014-09-22 13:08:46', '20140111_224240.jpg'),
+(92, 9, 'Neuer Kommentar', 'PhilippZwei', '2014-09-22 13:09:18', '20140214_151327.jpg'),
+(93, 9, 'Neuuuueeeeeee', 'PhilippDrei', '2014-09-22 13:11:12', '20140210_163434.jpg'),
+(94, 10, 'neuer Kommentar', 'oder', '2014-09-22 13:14:30', '20140202_135455.jpg'),
+(95, 10, 'new', 'comment', '2014-09-22 13:26:09', '20140202_135448.jpg'),
+(96, 10, 'asd', 'dddddd', '2014-09-22 14:19:48', 'glossy_button_blank_yellow_circle_T.png');
 
 -- --------------------------------------------------------
 
@@ -447,14 +480,14 @@ CREATE TABLE IF NOT EXISTS `locations` (
   `Likes` int(5) DEFAULT NULL,
   `Adresse` varchar(200) NOT NULL,
   PRIMARY KEY (`Id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=26 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=36 ;
 
 --
 -- Daten für Tabelle `locations`
 --
 
 INSERT INTO `locations` (`Id`, `Name`, `GeoLocation`, `Oeffnungszeiten`, `Art`, `Likes`, `Adresse`) VALUES
-(2, 'Barfuesser', '(48.396754, 9.989834', '8-12', 2, 1, 'Schwoerhausgasse 19, Ulm, Deutschland'),
+(2, 'Barfuessers', '(48.396754, 9.989834', '8-12', 2, 1, 'Schwoerhausgasse 19, Ulm, Deutschland'),
 (3, 'capos', '(48.400884, 9.991201', '8-10', 2, 0, 'Platzgasse 22, Ulm, Deutschland'),
 (4, 'zur forelle', '(48.395323, 9.990409', '9-13', 1, 0, 'Fischergasse 25, Ulm, Deutschland'),
 (5, 'theatro', '(48.3991, 9.98946000', '2-3', 3, 0, 'Hirschstrasse 12, Ulm, Deutschland'),
@@ -464,17 +497,13 @@ INSERT INTO `locations` (`Id`, `Name`, `GeoLocation`, `Oeffnungszeiten`, `Art`, 
 (9, 'mÃ¼nster', '(48.398523, 9.992555', '8', 4, 0, 'Muensterplatz 21, Ulm, Deutschland'),
 (10, 'choclet', '(48.396278, 9.994727', '8-12', 2, 5, 'Herdbruckerstrasse 14, Ulm, Deutschland'),
 (11, 'citrus', '(48.399877, 9.996631', '1-3', 3, 0, 'Frauenstrasse 29, Ulm, Deutschland'),
-(12, 'roxy', '(48.391555, 9.985777', '12-24', 4, 0, 'Schillerstrasse 1/12, Ulm, Deutschland'),
-(13, 'bla', '(48.39857, 10.006020', '10-12', 2, 0, 'Paulstrasse 4, Neu-Ulm, Deutschland'),
 (14, 'wiley', '(48.38059, 10.007182', '12-14', 3, 0, 'Wileystrasse 4, Neu-Ulm, Deutschland'),
 (15, 'schloessle', '(48.403182, 10.02031', '14-16', 1, 0, 'Schloessleweg, Neu-Ulm, Deutschland'),
-(16, 'olga', '(48.4018318, 9.99241', '16-18', 2, 0, 'bla adresse'),
-(17, 'olga', '(51.494149, 9.601675', '20-22', 2, 0, 'eine ADrese'),
-(21, 'barfÃ¼ÃŸer neu ulm', '(48.39677, 10.002302', '14-18', 2, 0, 'eine ADrese'),
 (22, 'konzertsaal', '(48.393796, 9.995728', '10-22', 1, 0, 'Silcherstrasse 2, Neu-Ulm, Deutschland'),
 (23, 'bla', '(51.744002, 7.187624', '8-12', 2, 0, 'MÃ¼hlenstraÃŸe 13, Haltern am See, Deutschland'),
-(24, 'bla', '(48.2181674, 9.87372', '8-12', 3, 0, 'B30, 88471 Laupheim, Deutschland'),
-(25, 'Joes Garage', '(51.315432, 9.479607', '8-12', 2, 0, 'Friedrich-Ebert-StraÃŸe 60, Kassel, Deutschland');
+(25, 'Joes Garage', '(51.315432, 9.479607', '8-12', 2, 0, 'Friedrich-Ebert-StraÃŸe 60, Kassel, Deutschland'),
+(34, 'location', '(48.3951553, 10.0057', '1-8', 4, 0, 'BahnhofstraÃŸe, 89231 Neu-Ulm, Deutschland'),
+(35, 'bla', '(48.39926, 9.9828099', '13-3', 4, 0, 'Germany');
 
 -- --------------------------------------------------------
 

@@ -1,0 +1,29 @@
+Remote Address:[::1]:80
+Request URL:http://localhost/llbec/Html/Core/Php/uploadImage.php
+Request Method:POST
+Status Code:200 OK
+Request Headersview source
+Accept:text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8
+Accept-Encoding:gzip,deflate
+Accept-Language:de-DE,de;q=0.8,en-US;q=0.6,en;q=0.4,es;q=0.2
+Cache-Control:no-cache
+Connection:keep-alive
+Content-Length:7108003
+Content-Type:multipart/form-data; boundary=----WebKitFormBoundary4Ox6KwOEmXoDAvtn
+Cookie:mapZoom=14; mapCenter=%7B%22latitude%22%3A48.39376975863517%2C%22longitude%22%3A9.997061110559118%7D
+Host:localhost
+Origin:http://localhost
+Pragma:no-cache
+Referer:http://localhost/llbec/Html/Index.html
+User-Agent:Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/37.0.2062.120 Safari/537.36
+Request Payload
+------WebKitFormBoundary4Ox6KwOEmXoDAvtn
+Content-Disposition: form-data; name="MAX_FILE_SIZE"
+
+5000000
+------WebKitFormBoundary4Ox6KwOEmXoDAvtn
+Content-Disposition: form-data; name="userfile"; filename="guideGER.pdf"
+Content-Type: application/pdf
+
+
+------WebKitFormBoundary4Ox6KwOEmXoDAvtn--s

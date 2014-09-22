@@ -5,6 +5,29 @@
     <li><a href="#/adminPages/manageUsers" ng-show="userIsAdmin()">User verwalten</a></li>
 </ul>
 <div class="adminManageUserPage">
+
+    <span class="input-group-addon glyphicon glyphicon-search" style="top: 0px"></span>
+    <input style="z-index: 0" class="form-control" type="text" ng-model="filterText" placeholder="Filter Text">
+
+    <table class="table table-striped">
+        <tr>
+            <th>Event Name</th>
+            <th>Event Datum</th>
+            <th>Event Zeit</th>
+            <th>Location</th>
+            <th>Edit</th>
+            <th>Delete</th>
+        </tr>
+        <tr ng-repeat="event in events | filter:filterText">
+            <td>{{event.name}}</td>
+            <td>{{event.date}}</td>
+            <td>{{event.time}}</td>
+            <td>{{event.locationId}}</td>
+            <td ng-click="open(location, true)"><span class="glyphicon glyphicon-edit"></span></td>
+            <td ng-click="deleteLocation(location)"><span class="glyphicon glyphicon-trash"></span></td>
+        </tr>
+    </table>
+
     <div class="container">
         <details>
             <summary>Event hinzufügen</summary>

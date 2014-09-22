@@ -1,0 +1,27 @@
+<details>
+  <summary>Kommentare</summary>
+  <form ng-submit="onPostComment(text, writer)" action="Core/Php/uploadImage.php" enctype="multipart/form-data" method="POST">
+      <input type="hidden" name="MAX_FILE_SIZE" value="5242880" />
+      <div class="padding-10">
+          <input type="text" class="form-control margin-bottom-5" placeholder="Text" ng-model="text">
+          <input type="text" class="form-control" placeholder="Username" ng-model="writer">
+          <input type="submit"/>
+          <input name="userfile" type="file" onchange="angular.element(this).scope().uploadFile(this.files)"/>
+      </div>
+  </form>
+  <ul class="list-group details" style="padding-left: 10px">
+      <li style="padding-right: 0px" ng-repeat="myComment in ngTarget.comments">
+          <div style="border: 1px solid #ddd; margin: 2px" class="caption thumbnail" ng-hide="existingFilepath(myComment.filePath)">
+              <h4 style="margin: 0px">{{myComment.writer}}<label class="navbar-right comment-time" role="button" href="#">{{myComment.timestamp}}</label></h4>
+              <p style="margin: 0px">{{myComment.text}}</p>
+          </div>
+          <div ng-show="existingFilepath(myComment.filePath)" style=" margin: 2px" class="thumbnail">
+              <div class="caption">
+                  <h4 style="margin: 0px">{{myComment.writer}}<label class="navbar-right comment-time" role="button" href="#">{{myComment.timestamp}}</label></h4>
+                  <p style="margin: 0px">{{myComment.text}}</p>
+              </div>
+              <img style="height: 100px" src="../Uploads/{{myComment.filePath}}" alt="">
+          </div>
+      </li>
+  </ul>
+</details>

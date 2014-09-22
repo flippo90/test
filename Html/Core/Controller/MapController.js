@@ -85,7 +85,7 @@ function ($rootScope, $scope, $location, $filter, filterChangedService, detailSe
     showCurrentLocation();
 
     $scope.markerClicked = function(location) {
-        filterService.removeMapLocations();
+        $scope.initDataObjects();
         $scope.detailService.location = location;
         if (location.event==false){
             $location.path('LocationDetail');

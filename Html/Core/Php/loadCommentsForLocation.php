@@ -8,6 +8,7 @@
 	$textArray = array();
 	$writerArray = array();
 	$timestampArray = array();
+	$filePathArray = array();
 
 
 	while($row = mysqli_fetch_array($ergebnis)){
@@ -16,6 +17,7 @@
 	     $textArray[] = $row['Text'];
 	     $writerArray[] = $row['Writer'];
 	     $timestampArray[] = $row['Timestamp'];
+	     $filePathArray[] = $row['Filename'];
 	}
 
 	echo json_encode( array(
@@ -24,6 +26,7 @@
 	    "texts" => $textArray,
 	    "writers" => $writerArray,
 	    "timestamps" => $timestampArray,
+	    "filename" => $filePathArray
 	    )
 	);
 ?>
